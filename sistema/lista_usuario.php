@@ -47,6 +47,7 @@ $result = mysqli_num_rows($query);
     <td>  <?php echo $data ["rol"]  ?> </td>
     <td>
         <a class="link_edit" href="editar_usuario.php? id=<?php echo $data ["idusuario"]; ?>"> Editar </a>
+        
         <a class="link_delete" href="#"> Eliminar </a>
  
 </td>
