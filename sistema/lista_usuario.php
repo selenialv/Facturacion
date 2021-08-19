@@ -32,9 +32,9 @@ include "../Conexion.php";  //llamado de conexion
 
 <?php 
 $query = mysqli_query($conection, "SELECT u.idusuario, u.nombre, u.correo, u.usuario,r.rol  FROM usuario u INNER JOIN 
-rol r ON u.rol = r.idrol" );
+rol r ON u.rol = r.idrol WHERE  estatus = 1" );
 
-$result = mysqli_num_rows($query);
+$result = mysqli_num_rows($query); 
     if($result > 0){
         while($data = mysqli_fetch_array($query)){
 
@@ -48,11 +48,16 @@ $result = mysqli_num_rows($query);
     <td>
         <a class="link_edit" href="editar_usuario.php? id=<?php echo $data ["idusuario"]; ?>"> Editar </a>
         
-        <a class="link_delete" href="#"> Eliminar </a>
- 
+        <?php if($data["idusuario"] != 2)
+        {
+            ?>
+        
+        <a class="link_delete" href="eliminar_confirmar_usuario.php? id=<?php echo $data ["idusuario"]; ?>">  Eliminar </a>
+           
+        <?php  } ?>
 </td>
 </tr>
-
+ 
 <?php
     }
 }
