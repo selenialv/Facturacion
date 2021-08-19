@@ -2,7 +2,6 @@
 <?php
 include "../Conexion.php";  //llamado de conexion
 
-
 ?>
 
 <!DOCTYPE html>
@@ -16,10 +15,19 @@ include "../Conexion.php";  //llamado de conexion
 <body>
 <?php  include "includes/header.php"; ?>
 	<section id="container">
+
+    <?php
+    $busqueda = strtolower ($_REQUEST['busqueda']);
+    if(empty($busqueda)){
+        header("location:) lista_usuario");
+    }
+    
+
+    ?>
 	<h1> Lista de usuarios </h1>
     <a href="registro_usuario.php" class="btn_new"> Crear usuario </a>
     <form action="buscar_usuario.php" method="get" class="form_search"> 
-        <input type="text" name ="busqueda" paceholder="buscar">
+        <input type="text" name ="busqueda" paceholder="buscar" value="<?php echo $busqueda; ?>">
         <input type="submit"value="Buscar" class="btn_search">
 </form>
     
@@ -36,7 +44,20 @@ include "../Conexion.php";  //llamado de conexion
 
 
 <?php 
-$sql_registe= mysqli_query($conection,"SELECT COUNT(*) as total_registro FROM usuario WHERE estatus = 1");
+$rol ='';
+if($busqueda == 'administrador'){
+    $rol = "OR rol LIKE '%1%'";
+
+}else if ($busqueda == 'vendedor') {
+    $rol = "OR rol LIKE '%2%' ";
+}
+
+
+$sql_registe= mysqli_query($conection,"SELECT COUNT(*) as total_registro FROM usuario
+ WHERE ( idusuario LIKE '$busqueda' OR nombre like '$busqueda'or correo 
+LIKE '$busqueda' OR usuario LIKE '$busqueda' $rol) AND estatus = 1");
+
+
 $result_register = mysqli_fetch_array($sql_registe);
 $total_registro = $result_register['total_registro'];
 
@@ -52,7 +73,16 @@ $total_paginas =ceil($total_registro / $por_pagina);
 
 
 $query = mysqli_query($conection, "SELECT u.idusuario, u.nombre, u.correo, u.usuario,r.rol  FROM usuario u INNER JOIN 
-rol r ON u.rol = r.idrol WHERE  estatus = 1 ORDER BY u.idusuario ASC LIMIT $desde,$por_pagina
+rol r ON u.rol = r.idrol 
+
+
+
+WHERE 
+( u.idusuario LIKE '$busqueda' OR 
+u.nombre LIKE '$busqueda'or u.correo 
+LIKE '$busqueda' OR u.usuario LIKE '$busqueda' OR r.rol LIKE '$busqueda') 
+AND 
+estatus = 1 ORDER BY u.idusuario ASC LIMIT $desde,$por_pagina
 " );
 
 $result = mysqli_num_rows($query); 
@@ -119,11 +149,9 @@ $result = mysqli_num_rows($query);
         <li> <a href="?pagina= <?php echo  $total_paginas; ?>">>| </a> </li>
        <?php } 
        ?>
-        
 
 </ul>
 </div>
-
 
 	</section>
 
