@@ -1,6 +1,12 @@
 <?php
  include "../conexion.php";
 if(!empty($_POST)){
+
+    if($_POST['idusuario'] == 2)
+    {
+        header("location: lista_usuario.php");
+        exit;
+    }
     $idusuario = $_POST['idusuario'];
    
     //$query_delete= mysqli_query ($conection, "DELETE FROM usuario WHERE idusuario =$idusuario");
