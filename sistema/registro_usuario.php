@@ -19,7 +19,10 @@ if(!empty($_POST))
         $clave= md5 ($_POST['clave']);// la sintaxis md5 se utiliza para encriptar la clave.
         $rol = $_POST['rol'];
 
+
+        
         $query= mysqli_query($conection, "SELECT * FROM usuario WHERE usuario ='$user' OR correo='$email'  ");
+        mysqli_close($conection);  //cerrar conexion
         $result = mysqli_fetch_array($query);
 
         if($result > 0) {
@@ -84,6 +87,7 @@ if(!empty($_POST))
        <?php 
        
       $query_rol = mysqli_query($conection, "SELECT * FROM rol");
+      mysqli_close($conection);  //cerrar conexion
       $result_rol= mysqli_num_rows($query_rol);
 
        ?>

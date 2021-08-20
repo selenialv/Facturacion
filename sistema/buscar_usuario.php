@@ -19,7 +19,8 @@ include "../Conexion.php";  //llamado de conexion
     <?php
     $busqueda = strtolower ($_REQUEST['busqueda']);
     if(empty($busqueda)){
-        header("location:) lista_usuario");
+        header("location: lista_usuario");
+        mysqli_close($conection); //cerrar conexión
     }
     
 
@@ -84,7 +85,7 @@ LIKE '$busqueda' OR u.usuario LIKE '$busqueda' OR r.rol LIKE '$busqueda')
 AND 
 estatus = 1 ORDER BY u.idusuario ASC LIMIT $desde,$por_pagina
 " );
-
+mysqli_close($conection); //cerrar conexión
 $result = mysqli_num_rows($query); 
     if($result > 0){
         while($data = mysqli_fetch_array($query)){

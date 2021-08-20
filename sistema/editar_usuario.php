@@ -59,24 +59,30 @@ if(!empty($_POST))
         }
 
     }
+    mysqli_close($conection);  //cerrar conexion
 }
 //veirfica que el id, si no lo encuentra, regrese a la pagina principal
 if(empty($_GET['id']))
 {
     header('Location: lista_usuario.php');
+    mysqli_close($conection);  //cerrar conexion
 }
 
 $iduser = $_GET['id'];
+
 
 $sql = mysqli_query($conection, "SELECT u.idusuario, u.nombre, u.correo,u.usuario,(u.rol) as idrol,(r.rol)
 as rol FROM usuario u INNER JOIN rol r
 on u.rol = r.idrol
 WHERE idusuario= $iduser");
 
+mysqli_close($conection);  //cerrar conexion
+
 
 $result_sql = mysqli_num_rows($sql);
 if($result_sql == 0){
     header('Location: lista_usuario.php');
+    
 }
 else {
     $option ='';
@@ -134,8 +140,10 @@ else {
 
 
        <?php 
+       include "../Conexion.php"; // Llamado a la BD.
        
       $query_rol = mysqli_query($conection, "SELECT * FROM rol");
+      mysqli_close($conection);  //cerrar conexion
       $result_rol= mysqli_num_rows($query_rol);
 
        ?>

@@ -54,6 +54,7 @@ $total_paginas =ceil($total_registro / $por_pagina);
 $query = mysqli_query($conection, "SELECT u.idusuario, u.nombre, u.correo, u.usuario,r.rol  FROM usuario u INNER JOIN 
 rol r ON u.rol = r.idrol WHERE  estatus = 1 ORDER BY u.idusuario ASC LIMIT $desde,$por_pagina
 " );
+mysqli_close($conection);  //cerrar conexion
 
 $result = mysqli_num_rows($query); 
     if($result > 0){
@@ -69,7 +70,7 @@ $result = mysqli_num_rows($query);
     <td>
         <a class="link_edit" href="editar_usuario.php? id=<?php echo $data ["idusuario"]; ?>"> Editar </a>
         
-        <?php if($data["idusuario"] != 1)
+        <?php if($data["idusuario"] != 2)
         {
             ?>
         
