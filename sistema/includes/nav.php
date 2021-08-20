@@ -1,6 +1,11 @@
 <nav>
 			<ul>
 				<li><a href="#">Inicio</a></li>
+				<?php 
+					 if($_SESSION['rol'] == 1)
+					 { 
+
+					 ?>
 				<li class="principal">
 					<a href="#">Usuarios</a>
 					<ul>
@@ -8,10 +13,11 @@
 						<li><a href="lista_usuario.php">Lista de Usuarios</a></li>
 					</ul>
 				</li>
+				<?php } ?>
 				<li class="principal">
 					<a href="#">Clientes</a>
 					<ul>
-						<li><a href="#">Nuevo Cliente</a></li>
+						<li><a href="registro_cliente.php">Nuevo Cliente</a></li>
 						<li><a href="#">Lista de Clientes</a></li>
 					</ul>
 				</li>

@@ -1,5 +1,10 @@
 
 <?php
+
+session_start();
+if($_SESSION['rol'] != 1){
+    header("location: ./"); //restringiendo acceso al sistema. 
+}
 include "../Conexion.php";  //llamado de conexion
 
 
@@ -8,7 +13,7 @@ include "../Conexion.php";  //llamado de conexion
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8"> 
 	<?php  include "includes/scripts.php"; ?>
 
 	<title>Sisteme Ventas</title>
@@ -54,7 +59,7 @@ $total_paginas =ceil($total_registro / $por_pagina);
 $query = mysqli_query($conection, "SELECT u.idusuario, u.nombre, u.correo, u.usuario,r.rol  FROM usuario u INNER JOIN 
 rol r ON u.rol = r.idrol WHERE  estatus = 1 ORDER BY u.idusuario ASC LIMIT $desde,$por_pagina
 " );
-mysqli_close($conection);  //cerrar conexion
+  mysqli_close($conection);  //cerrar conexion
 
 $result = mysqli_num_rows($query); 
     if($result > 0){

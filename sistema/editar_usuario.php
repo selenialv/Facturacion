@@ -1,4 +1,8 @@
 <?php
+session_start();
+if($_SESSION['rol'] != 1){
+    header("location: ./"); //restringiendo acceso al sistema. 
+}
 
 include "../Conexion.php"; // Llamado a la BD.
 if(!empty($_POST))

@@ -29,7 +29,7 @@ if (!empty($_POST))
             $data = mysqli_fetch_array($query);
             session_start();
             $_SESSION ['active'] = true;
-            $_SESSION ['iduser'] = $data ['idusurio'];
+            $_SESSION ['idUser'] = $data ['idusuario'];
             $_SESSION ['nombre'] = $data ['nombre'];
             $_SESSION ['email'] = $data ['email'];
             $_SESSION ['user'] = $data ['usuario'];

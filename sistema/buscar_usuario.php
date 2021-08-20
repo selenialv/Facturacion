@@ -1,5 +1,9 @@
 
 <?php
+session_start();
+if($_SESSION['rol'] != 1){
+    header("location: ./"); //restringiendo acceso al sistema. 
+}
 include "../Conexion.php";  //llamado de conexion
 
 ?>

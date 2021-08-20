@@ -1,10 +1,15 @@
 <?php
 
+session_start();
+if($_SESSION['rol'] != 1){
+    header("location: ./"); //restringiendo acceso al sistema. 
+}
+
 include "../Conexion.php"; // Llamado a la BD.
 if(!empty($_POST))
 
 {
-    $alert ='';
+    $alert =''; 
 
     if(empty($_POST['nombre']) || empty($_POST['correo'])|| empty($_POST['usuario']) || empty($_POST['clave'])|| 
     empty($_POST['rol']))
@@ -22,7 +27,6 @@ if(!empty($_POST))
 
         
         $query= mysqli_query($conection, "SELECT * FROM usuario WHERE usuario ='$user' OR correo='$email'  ");
-        mysqli_close($conection);  //cerrar conexion
         $result = mysqli_fetch_array($query);
 
         if($result > 0) {
@@ -87,7 +91,7 @@ if(!empty($_POST))
        <?php 
        
       $query_rol = mysqli_query($conection, "SELECT * FROM rol");
-      mysqli_close($conection);  //cerrar conexion
+      mysqli_close($conection); //cerrar conexión
       $result_rol= mysqli_num_rows($query_rol);
 
        ?>
