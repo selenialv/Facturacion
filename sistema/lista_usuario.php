@@ -21,11 +21,14 @@ include "../Conexion.php";  //llamado de conexion
 <body>
 <?php  include "includes/header.php"; ?>
 	<section id="container">
-	<h1> Lista de usuarios </h1>
-    <a href="registro_usuario.php" class="btn_new"> Crear usuario </a>
+	<h1><i class="fas fa-users"></i> Lista de usuarios </h1>
+    <a href="registro_usuario.php" class="btn_new"><i class="fas fa-user-plus"></i> Crear usuario </a> 
     <form action="buscar_usuario.php" method="get" class="form_search"> 
-        <input type="text" name ="busqueda" paceholder="buscar">
-        <input type="submit"value="Buscar" class="btn_search">
+        <input type="text" name ="busqueda" id="busqueda" paceholder="buscar">
+
+        <button type="submit" class="btn_search"> <i class="fas fa-search"></i></button> 
+    
+       
 </form>
     
     <table>
@@ -73,13 +76,13 @@ $result = mysqli_num_rows($query);
     <td>  <?php echo $data ["usuario"]  ?></td>
     <td>  <?php echo $data ["rol"]  ?> </td>
     <td>
-        <a class="link_edit" href="editar_usuario.php? id=<?php echo $data ["idusuario"]; ?>"> Editar </a>
+        <a class="link_edit" href="editar_usuario.php? id=<?php echo $data ["idusuario"]; ?>"><i class="fas fa-edit"></i>Editar  | </a>
         
         <?php if($data["idusuario"] != 2)
         {
             ?>
         
-        <a class="link_delete" href="eliminar_confirmar_usuario.php? id=<?php echo $data ["idusuario"]; ?>">  Eliminar </a>
+        <a class="link_delete" href="eliminar_confirmar_usuario.php? id=<?php echo $data ["idusuario"]; ?>"> <i class="fas fa-trash-alt"></i> Eliminar</a>
            
         <?php  } ?>
 </td>

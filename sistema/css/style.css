@@ -164,6 +164,7 @@ nav li ul li:last-child{
 .form_register {
 	width: 450px;
 	margin:auto;
+	margin-top: 20px;
 	
 }
 .form_register h1{
@@ -212,6 +213,9 @@ input, select {
 	border: 0;
 	cursor:pointer;
 	margin: 15px auto;
+	display: block;
+    border-radius: 5px;
+    margin-top: 30px;
 
 }
 .alert {
