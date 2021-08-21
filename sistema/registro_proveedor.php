@@ -31,7 +31,7 @@ if(!empty($_POST))
 if($query_insert)
 {
     $alert='<p class="msg_save"> 
-    Proveedor guarado correctamente </p>';
+    Proveedor guardado correctamente </p>';
 
 
 } else 

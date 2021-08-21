@@ -1,42 +1,56 @@
 <?php
-
 session_start();
 
 include "../Conexion.php";  //llamado de conexion
-
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8"> 
+	<meta charset="UTF-8">
 	<?php  include "includes/scripts.php"; ?>
 
-	<title>Listado de clientes</title>
+	<title>Lista de clientes</title>
 </head>
 <body>
 <?php  include "includes/header.php"; ?>
 	<section id="container">
+
+    <?php
+    $busqueda = strtolower ($_REQUEST['busqueda']);
+    if(empty($busqueda)){
+        header("location: lista_clientes.php");
+    
+    }
+    
+
+    ?>
 	<h1> Lista de clientes </h1>
-    <a href="registro_cliente.php" class="btn_new"> Crear cliente</a>
+    <a href="registro_usuario.php" class="btn_new"> Crear cliente </a>
     <form action="buscar_cliente.php" method="get" class="form_search"> 
-        <input type="text" name ="busqueda" paceholder="buscar">
+        <input type="text" name ="busqueda" paceholder="buscar" value="<?php echo $busqueda; ?>">
         <input type="submit"value="Buscar" class="btn_search">
 </form>
     
     <table>
         <tr>
-            <th>ID </th>
-            <th>Cédula </th>
+           <th>Id </th>
+            <th>Cedula </th>
             <th>Nombre</th>
-            <th>Telefono </th>
-            <th>Direccion</th>
+            <th>telefono </th>
+            <th>Dirección </th>
             <th>Acciones </th>
 </tr>
 
+
 <?php 
-$sql_registe= mysqli_query($conection,"SELECT COUNT(*) as total_registro FROM cliente WHERE estatus = 1");
+
+$sql_registe= mysqli_query($conection,"SELECT COUNT(*) as total_registro FROM cliente
+ WHERE ( idcliente LIKE '$busqueda' OR nombre
+LIKE '$busqueda' OR nit LIKE '$busqueda' OR telefono LIKE '$busqueda' OR direccion LIKE '$busqueda') AND estatus = 1");
+
+
 $result_register = mysqli_fetch_array($sql_registe);
 $total_registro = $result_register['total_registro'];
 
@@ -51,45 +65,40 @@ $desde = ($pagina-1)* $por_pagina;
 $total_paginas =ceil($total_registro / $por_pagina);
 
 
-$query = mysqli_query($conection, "SELECT  * FROM cliente
- WHERE  estatus = 1 ORDER BY idcliente ASC LIMIT $desde,$por_pagina
-" );
- 
+$query = mysqli_query($conection,"SELECT * FROM cliente WHERE 
+ 										( idcliente LIKE '%$busqueda%' OR 
+ 										 	nit LIKE '%$busqueda%' OR 
+ 											nombre LIKE '%$busqueda%' OR 
+ 											telefono LIKE '%$busqueda%' OR 
+ 											direccion LIKE '%$busqueda%' 
+)
+ 										AND 
+ 										estatus = 1 ORDER BY idcliente ASC LIMIT $desde,$por_pagina
+ 										");
 
+mysqli_close($conection); //cerrar conexión
 $result = mysqli_num_rows($query); 
     if($result > 0){
         while($data = mysqli_fetch_array($query)){
-if($data['nit'] == 0){
-    $nit= 'N/T';
 
-}
-else{
-    $nit = $data ["nit"];
-}
 ?>
      <tr>
     <td> <?php echo $data ["idcliente"]  ?> </td>
-    <td>  <?php echo $nit; ["nit"]  ?></td>
+    <td>  <?php echo $data ["nit"]  ?></td>
     <td>  <?php echo $data ["nombre"]  ?></td>
     <td>  <?php echo $data ["telefono"]  ?></td>
     <td>  <?php echo $data ["direccion"]  ?></td>
- 
+
     <td>
         <a class="link_edit" href="editar_cliente.php? id=<?php echo $data ["idcliente"]; ?>"> Editar </a>
-
-        <?php 
-        if($_SESSION['rol'] ==1) {  ?>
-            <a class="link_delete" href="eliminar_confirmar_cliente.php? id=<?php echo $data ["idcliente"]; ?>">  Eliminar </a>
-
         
-        <?php } ?>
-
-      
-    
+        <?php if($_SESSION['rol'] ==1) {  ?>
         
+          
         
+        <a class="link_delete" href="eliminar_confirmar_cliente.php? id=<?php echo $data ["idcliente"]; ?>">  Eliminar </a>
            
- 
+        <?php  } ?>
 </td>
 </tr>
  
@@ -133,11 +142,9 @@ else{
         <li> <a href="?pagina= <?php echo  $total_paginas; ?>">>| </a> </li>
        <?php } 
        ?>
-        
 
 </ul>
 </div>
-
 
 	</section>
 
