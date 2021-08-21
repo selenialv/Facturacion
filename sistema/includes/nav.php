@@ -14,20 +14,32 @@
 					</ul>
 				</li>
 				<?php } ?>
+				
 				<li class="principal">
 					<a href="#">Clientes</a>
 					<ul>
 						<li><a href="registro_cliente.php">Nuevo Cliente</a></li>
-						<li><a href="#">Lista de Clientes</a></li>
+						<li><a href="lista_clientes.php">Lista de Clientes</a></li>
 					</ul>
+
+				
 				</li>
-				<li class="principal">
+				
+				<?php 
+					 if($_SESSION['rol'] == 1) //Seguridad
+					 { 
+					 ?>
+					<li class="principal">
 					<a href="#">Proveedores</a>
 					<ul>
-						<li><a href="#">Nuevo Proveedor</a></li>
+						<li><a href="registro_proveedor.php">Nuevo Proveedor</a></li>
 						<li><a href="#">Lista de Proveedores</a></li>
 					</ul>
 				</li>
+		
+				<?php 
+					 }
+				?>
 				<li class="principal">
 					<a href="#">Productos</a>
 					<ul>

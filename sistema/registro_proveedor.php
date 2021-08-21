@@ -1,6 +1,10 @@
 <?php
 
+
 session_start();
+if($_SESSION['rol'] != 1){
+    header("location: ./"); //restringiendo acceso al sistema. 
+}
 
 include "../Conexion.php"; // Llamado a la BD.
 if(!empty($_POST))
@@ -8,41 +12,32 @@ if(!empty($_POST))
 {
     $alert =''; 
 
-    if(empty($_POST['nombre']) || empty($_POST['telefono'])|| empty($_POST['direccion']) )
+    if(empty($_POST['proveedor']) || empty ($_POST['contacto']) || empty($_POST['telefono'])|| empty($_POST['direccion']) )
     {
         $alert ='<p class="msg_error"> Todos los campos son obligatorios</p>'; 
     } else{
         
-        $nit          = $_POST['nit'];
-        $nombre      = $_POST['nombre'];
+        $proveedor        = $_POST['proveedor'];
+        $contacto      = $_POST['contacto'];
         $telefono     = $_POST['telefono'];
         $direccion   = $_POST['direccion'];
         $usuario_id = $_SESSION['idUser'];
         
-     $result= 0;
-
-     if(is_numeric($nit) and $nit != 0)
-     {
-        $query= mysqli_query($conection, "SELECT * FROM cliente WHERE nit ='$nit'   ");
-         $result = mysqli_fetch_array($query);
-     }
-     if($result > 0){
-        $alert ='<p class="msg_error"> El numero de nit ya existe</p>'; 
-     } else {
-        $query_insert = mysqli_query($conection, "INSERT INTO cliente (nit, nombre, telefono, direccion, usuario_id) 
-        VALUES ( '$nit','$nombre', '$telefono',  '$direccion','$usuario_id')" ); 
+     
+        $query_insert = mysqli_query($conection, "INSERT INTO proveedor (proveedor, contacto, telefono, direccion, usuario_id) 
+        VALUES ( '$proveedor','$contacto', '$telefono',  '$direccion','$usuario_id')" ); 
      
 
 if($query_insert)
 {
     $alert='<p class="msg_save"> 
-    cliente guarado correctamente </p>';
+    Proveedor guarado correctamente </p>';
 
 
 } else 
   {
       $alert='<p class="msg_error"> 
-      Error al guardar el cliente</p>';
+      Error al guardar el proveedor</p>';
   }
          
      }
@@ -50,7 +45,8 @@ if($query_insert)
 
     }
 
-}
+
+
 
 
 ?>
@@ -64,7 +60,7 @@ if($query_insert)
 	<meta charset="UTF-8">
 	<?php  include "includes/scripts.php"; ?>
 
-	<title>Registro clientes</title>
+	<title>Registro proveedor</title>
 </head>
 <body>
 <?php  include "includes/header.php"; ?>
@@ -72,23 +68,23 @@ if($query_insert)
 		
     <div class="form_register">
 
-    <h1>Registro clientes </h1>
+    <h1>Registro Proveedor </h1>
     <hr>
     <div class="alert"> <?php echo isset($alert) ? $alert:'';?> </div>  
     
     <form action="" method="post">
 
-    <label for="nit"> Nit </label>
-        <input type="number" name="nit" id="nit" placeholder="Numero nit">
-        <label for="nombre">Nombre completo </label>
-        <input type="text" name="nombre" id="nombre" placeholder="Nombre completo">
+    <label for="proveedor"> Nombre del proveedor </label>
+        <input type="text" name="proveedor" id="proveedor" placeholder="Nombre del proveedor">
+        <label for="contacto">Contacto </label>
+        <input type="text" name="contacto" id="contacto" placeholder="Nombre completo del contacto">
         
         <label for="telefono"> Telefono </label>
         <input type="number" name="telefono" id="telefono" placeholder="Telefono">
         <label for="direccion"> Direccion</label>
         <input type="text" name="direccion" id="direccion" placeholder="Dirección">
         
-<input type="submit" value="Guardar cliente" class="btn_save">
+<input type="submit" value="Guardar proveedor" class="btn_save">
 </form>
 
 
