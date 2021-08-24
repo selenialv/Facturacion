@@ -67,15 +67,15 @@ $result = mysqli_num_rows($query);
         while($data = mysqli_fetch_array($query)){
             
             $formato = 'Y-m-d H:i:s';
-            $fecha = DateTime::createFromFormat($formato,$data ["date_add"])
+            $fecha = DateTime::createFromFormat($formato,$data ["date_add"]);
 ?>
 <tr>
-    <td> <?php echo $data ["codproveedor"]  ?></td>
-    <td> <?php echo $data ["proveedor"]  ?></td>
-    <td> <?php echo $data ["contacto"]  ?></td>
-    <td> <?php echo $data ["telefono"]  ?></td>
-    <td> <?php echo $data ["direccion"]  ?></td>
-    <td> <?php echo $fecha->format('d-m-Y')  ?></td>
+    <td> <?php echo $data ["codproveedor"];  ?></td>
+    <td> <?php echo $data ["proveedor"];  ?></td>
+    <td> <?php echo $data ["contacto"];  ?></td>
+    <td> <?php echo $data ["telefono"];  ?></td>
+    <td> <?php echo $data ["direccion"];  ?></td>
+    <td> <?php echo $fecha->format('d-m-Y');  ?></td>
 
     <td>
         <a class="link_edit" href="editar_proveedor.php? id=<?php echo $data ["codproveedor"]; ?>"> Editar </a>
