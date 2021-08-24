@@ -18,11 +18,9 @@
 				<li class="principal">
 					<a href="#"> <i class="fas fa-users"></i> Clientes</a>
 					<ul>
-						<li><a href="registro_cliente.php"><i class="fas fa-user-plus"></i> Nuevo Cliente</a></li>
-						<li><a href="lista_clientes.php"><i class="fas fa-users"></i> Lista de Clientes</a></li>
-					</ul>
-
-				
+						<li><a href="registro_cliente.php">Nuevo Cliente</a></li>
+						<li><a href="lista_clientes.php">Lista de Clientes</a></li>
+					</ul>				
 				</li>
 				
 				<?php 
@@ -30,10 +28,10 @@
 					 { 
 					 ?>
 					<li class="principal">
-					<a href="#">Proveedores</a>
+					<a href="#"><i class="far fa-building"></i> Proveedores</a>
 					<ul>
 						<li><a href="registro_proveedor.php">Nuevo Proveedor</a></li>
-						<li><a href="#">Lista de Proveedores</a></li>
+						<li><a href="lista_proveedor.php">Lista de Proveedores</a></li>
 					</ul>
 				</li>
 		

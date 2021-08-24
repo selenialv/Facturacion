@@ -3,7 +3,7 @@
 
 session_start();
 if($_SESSION['rol'] != 1){
-    header("location: ./"); //restringiendo acceso al sistema. 
+    header("location: ./"); //Restringiendo acceso al sistema. 
 }
 
 include "../Conexion.php"; // Llamado a la BD.
@@ -44,11 +44,6 @@ if($query_insert)
 
 
     }
-
-
-
-
-
 ?>
 
 
@@ -60,7 +55,7 @@ if($query_insert)
 	<meta charset="UTF-8">
 	<?php  include "includes/scripts.php"; ?>
 
-	<title>Registro proveedor</title>
+	<title>Registro Proveedor</title>
 </head>
 <body>
 <?php  include "includes/header.php"; ?>
@@ -79,9 +74,9 @@ if($query_insert)
         <label for="contacto">Contacto </label>
         <input type="text" name="contacto" id="contacto" placeholder="Nombre completo del contacto">
         
-        <label for="telefono"> Telefono </label>
+        <label for="telefono"> Teléfono </label>
         <input type="number" name="telefono" id="telefono" placeholder="Telefono">
-        <label for="direccion"> Direccion</label>
+        <label for="direccion"> Dirección</label>
         <input type="text" name="direccion" id="direccion" placeholder="Dirección">
         
 <input type="submit" value="Guardar proveedor" class="btn_save">
