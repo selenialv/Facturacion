@@ -54,7 +54,7 @@ if (!empty($_POST))
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Sistema facturacion</title>
+    <title>Login | Sistema facturación</title>
     <link rel="stylesheet" type= "text/css" href="css/style.css">
 </head>
 
@@ -62,7 +62,7 @@ if (!empty($_POST))
 <body>
     <section id="container">
         <form action="" method="post">
-        <h3> Iniciar secion </h3>
+        <h3> Iniciar sesión </h3>
         <img width="50" height="60" src="img/user.png" alt="Login">
 
         <input type= "text" name= "usuario" placeholder="Usuario">

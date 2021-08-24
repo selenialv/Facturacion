@@ -79,8 +79,7 @@ $result = mysqli_num_rows($query);
 
     <td>
         <a class="link_edit" href="editar_proveedor.php? id=<?php echo $data ["codproveedor"]; ?>"> Editar </a>
-    
-        
+        |  
         <a class="link_delete" href="eliminar_confirmar_proveedor.php? id=<?php echo $data ["codproveedor"]; ?>">  Eliminar </a>
 
 </td>
