@@ -11,11 +11,10 @@ if(!empty($_POST))
 
 {
     
-    
     $alert =''; 
 
-    if(empty($_POST['proveedor']) || empty ($_POST['producto']) || empty($_POST['precio'])||$_POST['precio'] <= 0  
-    ||empty($_POST['cantidad']) || $_POST['cantidad'<= 0 ] )
+    if(empty($_POST['proveedor']) || empty ($_POST['producto']) || empty($_POST['precio']) || $_POST['precio'] <= 0  
+    || empty($_POST['cantidad']) || $_POST['cantidad'<= 0 ] )
     {
         $alert ='<p class="msg_error"> Todos los campos son obligatorios</p>'; 
     } else{

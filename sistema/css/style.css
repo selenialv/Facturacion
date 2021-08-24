@@ -278,6 +278,10 @@ link_edit{
 .data_delete{
 	text-align: center;
 }
+.link_add{
+	color:#64b13d;
+}
+
 .data_delete{
 	font-size: 12px;
 	margin-top: 40px;
@@ -427,9 +431,14 @@ link_edit{
 	top: -10px;
 	z-index: 10;
 }
-#tbl_list_productos img{
-	width: 50px;
+
+
+.img_producto img{
+	width: 60px;
+	height: auto;
+	margin: auto;
 }
+
 .imgProductoDelete{
 	width: 175px;
 }
