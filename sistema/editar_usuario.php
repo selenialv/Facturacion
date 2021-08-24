@@ -78,7 +78,7 @@ $iduser = $_GET['id'];
 $sql = mysqli_query($conection, "SELECT u.idusuario, u.nombre, u.correo,u.usuario,(u.rol) as idrol,(r.rol)
 as rol FROM usuario u INNER JOIN rol r
 on u.rol = r.idrol
-WHERE idusuario= $iduser");
+WHERE idusuario= $iduser and estatus = 1");
 
 mysqli_close($conection);  //cerrar conexion
 
@@ -126,7 +126,7 @@ else {
 		
     <div class="form_register">
 
-    <h1>Editar Usuario </h1>
+    <h1><i class="fas fa-edit"></i> Editar Usuario </h1>
     <hr>
     <div class="alert"> <?php echo isset($alert) ? $alert:'';?> </div>  
     
@@ -168,7 +168,8 @@ echo $option;
         
 
 </select>
-<input type="submit" value="Editar usuario" class="btn_save">
+
+<button type="submit"class="btn_save"><i class="fas fa-edit"></i> Actualizar usuario</buttom> 
 </form>
 
 

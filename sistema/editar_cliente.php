@@ -76,7 +76,7 @@ $idcliente = $_REQUEST['id'];
 
 
 $sql = mysqli_query($conection, "SELECT * FROM cliente u 
-WHERE idcliente= $idcliente");
+WHERE idcliente= $idcliente and estatus = 1");
 
 mysqli_close($conection);  //cerrar conexion
 
@@ -115,7 +115,7 @@ else {
 		
     <div class="form_register">
 
-    <h1>Actualizar cliente </h1>
+    <h1><i class="fas fa-edit"></i> Actualizar cliente </h1>
     <hr>
     <div class="alert"> <?php echo isset($alert) ? $alert:'';?> </div>  
     
@@ -132,7 +132,7 @@ else {
         <label for="direccion"> Direccion</label>
         <input type="text" name="direccion" id="direccion" placeholder="Dirección"value ="<?php echo $direccion; ?>">
         
-<input type="submit" value="Actualizar" class="btn_save">
+        <button type="submit"class="btn_save"><i class="fas fa-edit"></i> Actualizar cliente</buttom> 
 </form>
 
 </div>  

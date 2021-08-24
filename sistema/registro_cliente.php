@@ -72,7 +72,7 @@ if($query_insert)
 		
     <div class="form_register">
 
-    <h1>Registro clientes </h1>
+    <h1><i class="fas fa-users"></i> Registro clientes </h1>
     <hr>
     <div class="alert"> <?php echo isset($alert) ? $alert:'';?> </div>  
     
@@ -88,7 +88,7 @@ if($query_insert)
         <label for="direccion"> Direccion</label>
         <input type="text" name="direccion" id="direccion" placeholder="Dirección">
         
-<input type="submit" value="Guardar cliente" class="btn_save">
+        <button type="submit"class="btn_save"><i class="fas fa-save"></i> Guardar cliente  </button>
 </form>
 
 

@@ -280,6 +280,7 @@ link_edit{
 }
 .data_delete{
 	font-size: 12px;
+	margin-top: 40px;
 }
 .data_delete span{
 	font-weight: bold;
@@ -288,13 +289,14 @@ link_edit{
 }
 .btn_cancel, .btn_ok{
 	width: 124px;
-	background: #478ba2;
+    background: #ff253a;
 	color: #FFF;
 	display: inline-block;
 	padding: 5px;
 	border-radius: 5px;
 	cursor: painter;
 	margin:15px;
+	border: 0;
 
 }
 
@@ -357,8 +359,77 @@ link_edit{
 .form_search .btn_search {
 	background: #1faac8;
 	color: #FFF;
-	padding: 0 20px;
+	padding: 0 10px;
 	border:0;
 	cursor: pointer;
 	margin-left: 10px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	border-radius: 5px;
+}
+
+.prevPhoto {
+    display: flex;
+    justify-content: space-between;
+    width: 160px;
+    height: 150px;
+    border: 1px solid #CCC;
+    position: relative;
+    cursor: pointer;
+    background: url(../images/uploads/user.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: auto;
+}
+.prevPhoto label{
+	cursor: pointer;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+.prevPhoto img{
+	width: 100%;
+	height: 100%;
+}
+.upimg, .notBlock{
+	display: none !important;
+}
+.errorArchivo{
+	font-size: 16px;
+	font-family: arial;
+	color: #cc0000;
+	text-align: center;
+	font-weight: bold; 
+	margin-top: 10px;
+}
+.delPhoto{
+	color: #FFF;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	background: red;
+	position: absolute;
+	right: -10px;
+	top: -10px;
+	z-index: 10;
+}
+#tbl_list_productos img{
+	width: 50px;
+}
+.imgProductoDelete{
+	width: 175px;
 }

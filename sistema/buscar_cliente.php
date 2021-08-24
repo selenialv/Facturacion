@@ -30,7 +30,7 @@ include "../Conexion.php";  //llamado de conexion
     <a href="registro_usuario.php" class="btn_new"> Crear cliente </a>
     <form action="buscar_cliente.php" method="get" class="form_search"> 
         <input type="text" name ="busqueda" paceholder="buscar" value="<?php echo $busqueda; ?>">
-        <input type="submit"value="Buscar" class="btn_search">
+        <button type="submit" class="btn_search"> <i class="fas fa-search"></i></button> 
 </form>
     
     <table>

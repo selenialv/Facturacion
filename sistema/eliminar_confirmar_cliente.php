@@ -67,6 +67,9 @@ if(empty($_REQUEST['id'])){
 <?php  include "includes/header.php"; ?>
 	<section id="container">
 		<div class="data_delete">
+        <i class="fas fa-user-times fa-7x" style="color: #e66262"></i>
+        <br>
+        <br>
             <h2> ¿Está seguro de eliminar el siguiente registro? </h2>
             <p>Nombre de cliente: <span> <?php echo $nombre; ?> </span></p>
             <p>Cedula: <span> <?php echo $nit; ?> </span></p>

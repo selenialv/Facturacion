@@ -21,7 +21,7 @@ include "../Conexion.php";  //llamado de conexion
 <body>
 <?php  include "includes/header.php"; ?>
 	<section id="container">
-	<h1><i class="fas fa-users"></i> Lista de usuarios </h1>
+	<h1><i class="fas fa-users fa-lg"></i> Lista de usuarios </h1>
     <a href="registro_usuario.php" class="btn_new"><i class="fas fa-user-plus"></i> Crear usuario </a> 
     <form action="buscar_usuario.php" method="get" class="form_search"> 
         <input type="text" name ="busqueda" id="busqueda" paceholder="buscar">
@@ -95,8 +95,6 @@ $result = mysqli_num_rows($query);
 ?>
 
 
-
-
 </table>
 <div class="paginador">
     <ul>
@@ -106,8 +104,8 @@ $result = mysqli_num_rows($query);
 
 
         ?>
-       <li> <a href="?pagina= <?php echo 1; ?> "> |< </a> </li>
-       <li> <a href="?pagina =<?php echo $pagina -1; ?>"> << </a> </li>
+       <li> <a href="?pagina= <?php echo 1; ?> "> <i class="fas fa-step-backward"></i> </a> </li>
+       <li> <a href="?pagina =<?php echo $pagina -1; ?>"> <i class="fas fa-caret-left fa-lg"></i> </a> </li>
   
         <?php 
         }
@@ -124,8 +122,8 @@ $result = mysqli_num_rows($query);
     if($pagina != $total_paginas)
         {
         ?>
-        <li> <a href="?pagina =<?php echo $pagina + 1; ?>"> >> </a> </li>
-        <li> <a href="?pagina= <?php echo  $total_paginas; ?>">>| </a> </li>
+        <li> <a href="?pagina =<?php echo $pagina + 1; ?>"> <i class="fas fa-caret-right fa-lg"></i></a> </li>
+        <li> <a href="?pagina= <?php echo  $total_paginas; ?>"><i class="fas fa-step-forward"></i> </a> </li>
        <?php } 
        ?>
         

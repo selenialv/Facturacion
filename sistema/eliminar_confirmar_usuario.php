@@ -65,6 +65,9 @@ if(empty($_REQUEST['id']) || $_REQUEST['id'] == 2){
 <?php  include "includes/header.php"; ?>
 	<section id="container">
 		<div class="data_delete">
+        <i class="fas fa-user-times fa-7x" style="color: #e66262"></i>
+        <br>
+        <br>
             <h2> ¿Está seguro de eliminar el siguiente registro? </h2>
             <p>Nombre: <span> <?php echo $nombre; ?> </span></p>
             <p>Usuario: <span> <?php echo $usuario; ?> </span></p>
@@ -72,8 +75,9 @@ if(empty($_REQUEST['id']) || $_REQUEST['id'] == 2){
 
             <form method="post" action="">
                 <input type="hidden" name="idusuario"value="<?php echo $idusuario; ?>">
-                <a href="lista_usuario.php" class="btn_cancel">Cancelar </a>
-                <input type="submit" value="Aceptar" class="btn_ok">
+                <a href="lista_usuario.php" class="btn_cancel"><i class="fas fa-ban"></i>  Cancelar </a>
+               
+                <button type="submit"class="btn_ok"><i class="fas fa-trash-alt"></i> Eliminar </button>
 </form>
 </di>
 
