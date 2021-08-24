@@ -20,9 +20,7 @@
 					<ul>
 						<li><a href="registro_cliente.php">Nuevo Cliente</a></li>
 						<li><a href="lista_clientes.php">Lista de Clientes</a></li>
-					</ul>
-
-				
+					</ul>				
 				</li>
 				
 				<?php 
@@ -30,10 +28,10 @@
 					 { 
 					 ?>
 					<li class="principal">
-					<a href="#">Proveedores</a>
+					<a href="#"><i class="far fa-building"></i> Proveedores</a>
 					<ul>
 						<li><a href="registro_proveedor.php">Nuevo Proveedor</a></li>
-						<li><a href="#">Lista de Proveedores</a></li>
+						<li><a href="lista_proveedor.php">Lista de Proveedores</a></li>
 					</ul>
 				</li>
 		
