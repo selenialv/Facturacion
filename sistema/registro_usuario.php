@@ -72,7 +72,7 @@ if(!empty($_POST))
 		
     <div class="form_register">
 
-    <h1> <i class="fas fa-users"></i> Registro usuario </h1>
+    <h1> <i class="fas fa-user-plus"></i> Registro usuario </h1>
     <hr>
     <div class="alert"> <?php echo isset($alert) ? $alert:'';?> </div>  
     

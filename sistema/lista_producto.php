@@ -13,7 +13,7 @@ include "../Conexion.php";  //llamado de conexion
 	<meta charset="UTF-8"> 
 	<?php  include "includes/scripts.php"; ?>
 
-	<title>Listado de productos </title>
+	<title>Lista de Productos</title>
 </head>
 <body>
 
@@ -100,7 +100,7 @@ $result = mysqli_num_rows($query);
 
 
             <a class="link_delete" href="eliminar_confirmar_producto.php? id=<?php echo $data ["codproducto"]; ?>">
-            <i class="fas fa-trash-alt"></i>   Eliminar </a>
+            <i class="fas fa-trash-alt"></i> Eliminar </a>
 
 
 </td>

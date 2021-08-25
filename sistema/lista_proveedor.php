@@ -78,9 +78,9 @@ $result = mysqli_num_rows($query);
     <td> <?php echo $fecha->format('d-m-Y');  ?></td>
 
     <td>
-        <a class="link_edit" href="editar_proveedor.php? id=<?php echo $data ["codproveedor"]; ?>"> Editar </a>
+        <a class="link_edit" href="editar_proveedor.php? id=<?php echo $data ["codproveedor"]; ?>"><i class="fas fa-edit"></i> Editar </a>
         |  
-        <a class="link_delete" href="eliminar_confirmar_proveedor.php? id=<?php echo $data ["codproveedor"]; ?>">  Eliminar </a>
+        <a class="link_delete" href="eliminar_confirmar_proveedor.php? id=<?php echo $data ["codproveedor"]; ?>"><i class="fas fa-trash-alt"></i> Eliminar </a>
 
 </td>
 </tr>

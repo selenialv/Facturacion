@@ -13,12 +13,12 @@ include "../Conexion.php";  //llamado de conexion
 	<meta charset="UTF-8"> 
 	<?php  include "includes/scripts.php"; ?>
 
-	<title>Listado de clientes</title>
+	<title>Lista de Clientes</title>
 </head>
 <body>
 <?php  include "includes/header.php"; ?>
 	<section id="container">
-	<h1> <i class="fas fa-user"></i> Lista de clientes </h1>
+	<h1> <i class="fas fa-users"></i> Lista de clientes </h1>
     <a href="registro_cliente.php" class="btn_new"><i class="fas fa-user-plus"></i> Crear cliente</a>
     <form action="buscar_cliente.php" method="get" class="form_search"> 
         <input type="text" name ="busqueda" paceholder="buscar">
@@ -27,12 +27,12 @@ include "../Conexion.php";  //llamado de conexion
     
     <table>
         <tr>
-            <th>ID </th>
-            <th>Cédula </th>
+            <th>ID</th>
+            <th>RUC</th>
             <th>Nombre</th>
-            <th>Telefono </th>
-            <th>Direccion</th>
-            <th>Acciones </th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+            <th>Acciones</th>
 </tr>
 
 <?php 

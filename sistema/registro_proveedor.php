@@ -63,7 +63,7 @@ if($query_insert)
 		
     <div class="form_register">
 
-    <h1>Registro Proveedor </h1>
+    <h1><i class="far fa-building"></i> Registro Proveedor </h1>
     <hr>
     <div class="alert"> <?php echo isset($alert) ? $alert:'';?> </div>  
     
@@ -75,11 +75,13 @@ if($query_insert)
         <input type="text" name="contacto" id="contacto" placeholder="Nombre completo del contacto">
         
         <label for="telefono"> Teléfono </label>
-        <input type="number" name="telefono" id="telefono" placeholder="Telefono">
+        <input type="number" name="telefono" id="telefono" placeholder="Teléfono">
         <label for="direccion"> Dirección</label>
         <input type="text" name="direccion" id="direccion" placeholder="Dirección">
+
+        <button type="submit"class="btn_save"><i class="fas fa-save"></i> Guardar proveedor</button>
         
-<input type="submit" value="Guardar proveedor" class="btn_save">
+
 </form>
 
 

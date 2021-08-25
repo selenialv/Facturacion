@@ -64,7 +64,7 @@ if($query_insert)
 	<meta charset="UTF-8">
 	<?php  include "includes/scripts.php"; ?>
 
-	<title>Registro clientes</title>
+	<title>Registro Clientes</title>
 </head>
 <body>
 <?php  include "includes/header.php"; ?>
@@ -72,23 +72,23 @@ if($query_insert)
 		
     <div class="form_register">
 
-    <h1><i class="fas fa-users"></i> Registro clientes </h1>
+    <h1><i class="fas fa-user-plus"></i> Registro Clientes </h1>
     <hr>
     <div class="alert"> <?php echo isset($alert) ? $alert:'';?> </div>  
     
     <form action="" method="post">
 
-    <label for="nit"> Nit </label>
-        <input type="number" name="nit" id="nit" placeholder="Numero nit">
+    <label for="nit"> RUC</label>
+        <input type="number" name="nit" id="nit" placeholder="RUC">
         <label for="nombre">Nombre completo </label>
         <input type="text" name="nombre" id="nombre" placeholder="Nombre completo">
         
-        <label for="telefono"> Telefono </label>
-        <input type="number" name="telefono" id="telefono" placeholder="Telefono">
-        <label for="direccion"> Direccion</label>
+        <label for="telefono"> Teléfono </label>
+        <input type="number" name="telefono" id="telefono" placeholder="Teléfono">
+        <label for="direccion"> Dirección</label>
         <input type="text" name="direccion" id="direccion" placeholder="Dirección">
         
-        <button type="submit"class="btn_save"><i class="fas fa-save"></i> Guardar cliente  </button>
+        <button type="submit"class="btn_save"><i class="fas fa-save"></i> Guardar cliente</button>
 </form>
 
 

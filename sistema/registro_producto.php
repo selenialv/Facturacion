@@ -83,7 +83,7 @@ if($query_insert)
 	<meta charset="UTF-8">
 	<?php  include "includes/scripts.php"; ?>
 
-	<title>Registro proveedor</title>
+	<title>Registro Productos</title>
 </head>
 <body>
 <?php  include "includes/header.php"; ?>
@@ -91,13 +91,13 @@ if($query_insert)
 		
     <div class="form_register">
 
-    <h1> <i class=" fas fa-cubes"> </i> Registro Producto </h1>
+    <h1> <i class=" fas fa-cubes"> </i> Registro Producto</h1>
     <hr>
     <div class="alert"> <?php echo isset($alert) ? $alert:'';?> </div>  
     
     <form action="" method="post" enctype="multipart/form-data">
 
-    <label for="proveedor"> Proveedor </label>
+    <label for="proveedor"> Proveedor</label>
     <?php 
     $query_proveedor = mysqli_query($conection, "SELECT codproveedor, proveedor FROM 
 
@@ -124,13 +124,13 @@ if($query_insert)
         
          </select>
        
-        <label for="producto">Producto </label>
+        <label for="producto"> Producto</label>
 
 
-        <input type="text" name="producto" id="producto" placeholder="Nombre producto">
+        <input type="text" name="producto" id="producto" placeholder="Nombre del producto">
         
-        <label for="precio"> Precio </label>
-        <input type="number" name="precio" id="precio" placeholder="precio">
+        <label for="precio"> Precio</label>
+        <input type="number" name="precio" id="precio" placeholder="Precio">
         <label for="Cantiad"> Cantidad</label>
         <input type="number" name="cantidad" id="cantidad" placeholder="Cantidad">
 
@@ -147,8 +147,7 @@ if($query_insert)
         <div id="form_alert"></div>
 </div>
 
-        
-<input type="submit" value="Guardar proveedor" class="btn_save">
+<button type="submit"class="btn_save"><i class="fas fa-save"></i> Guardar producto</button>
 </form>
 
 

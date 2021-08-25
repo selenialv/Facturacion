@@ -7,7 +7,7 @@
 
 					 ?>
 				<li class="principal">
-					<a href="#"> <i class="fas fa-user"></i>  Usuarios</a>
+					<a href="#"> <i class="fas fa-users"></i>  Usuarios</a>
 					<ul>
 						<li><a href="registro_usuario.php"><i class="fas fa-user-plus"></i> Nuevo Usuario</a></li>
 						<li><a href="lista_usuario.php"> <i class="fas fa-users"></i> Lista de Usuarios</a></li>
@@ -16,10 +16,10 @@
 				<?php } ?>
 				
 				<li class="principal">
-					<a href="#"> <i class="fas fa-users"></i> Clientes</a>
+					<a href="#"> <i class="fas fa-user"></i> Clientes</a>
 					<ul>
-						<li><a href="registro_cliente.php">Nuevo Cliente</a></li>
-						<li><a href="lista_clientes.php">Lista de Clientes</a></li>
+						<li><a href="registro_cliente.php"><i class="fas fa-user-plus"></i> Nuevo Cliente</a></li>
+						<li><a href="lista_clientes.php"><i class="fas fa-users"></i> Lista de Clientes</a></li>
 					</ul>				
 				</li>
 				
@@ -30,8 +30,8 @@
 					<li class="principal">
 					<a href="#"><i class="far fa-building"></i> Proveedores</a>
 					<ul>
-						<li><a href="registro_proveedor.php">Nuevo Proveedor</a></li>
-						<li><a href="lista_proveedor.php">Lista de Proveedores</a></li>
+						<li><a href="registro_proveedor.php"><i class="fas fa-plus"></i> Nuevo Proveedor</a></li>
+						<li><a href="lista_proveedor.php"><i class="far fa-list-alt"></i> Lista de Proveedores</a></li>
 					</ul>
 				</li>
 		
@@ -45,11 +45,11 @@
 				<li class="principal">
 					<a href=""> <i class="fas fa-cube"></i> Productos</a>
 					<ul>
-						<li><a href="registro_producto.php">Nuevo Producto</a></li>
+						<li><a href="registro_producto.php"><i class="fas fa-plus"></i> Nuevo Producto</a></li>
 						<?php 
 					 }
 				?>
-						<li><a href="lista_producto.php">Lista de Productos</a></li>
+						<li><a href="lista_producto.php"><i class="fas fa-cube"></i> Lista de Productos</a></li>
 					</ul>
 				</li>
 			

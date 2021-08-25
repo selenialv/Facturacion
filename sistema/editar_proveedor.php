@@ -85,7 +85,7 @@ else
 		
     <div class="form_register">
 
-    <h1><i class="far fa-edit"></i>Actualizar Proveedor </h1>
+    <h1><i class="fas fa-edit"></i> Actualizar Proveedor </h1>
     <hr>
     <div class="alert"> <?php echo isset($alert) ? $alert:'';?> </div> 
 

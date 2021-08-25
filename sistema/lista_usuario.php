@@ -16,7 +16,7 @@ include "../Conexion.php";  //llamado de conexion
 	<meta charset="UTF-8"> 
 	<?php  include "includes/scripts.php"; ?>
 
-	<title>Sisteme Ventas</title>
+	<title>Lista de Usuarios</title>
 </head>
 <body>
 <?php  include "includes/header.php"; ?>

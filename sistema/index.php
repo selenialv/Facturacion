@@ -7,7 +7,7 @@ session_start();
 	<meta charset="UTF-8">
 	<?php  include "includes/scripts.php"; ?>
 
-	<title>Sisteme Ventas</title>
+	<title>Sistema Ventas</title>
 </head>
 <body>
 <?php  include "includes/header.php"; ?>
