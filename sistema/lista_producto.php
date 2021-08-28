@@ -80,13 +80,13 @@ $result = mysqli_num_rows($query);
 
 
 ?>
-     <tr>
-    <td> <?php echo $data ["codproducto"]  ?> </td>
+     <tr class="row<?php echo $data["codproducto"]; ?>">
+    <td> <?php echo $data ["codproducto"]; ?> </td>
   
-    <td>  <?php echo $data ["descripcion"]  ?></td>
-    <td>  <?php echo $data ["precio"]  ?></td>
-    <td>  <?php echo $data ["existencia"]  ?></td>
-    <td>  <?php echo $data ["proveedor"]  ?></td>
+    <td>  <?php echo $data ["descripcion"];?></td>
+    <td class="celPrecio">  <?php echo $data ["precio"];?></td>
+    <td class="celExistencia">  <?php echo $data ["existencia"]; ?></td>
+    <td>  <?php echo $data ["proveedor"]; ?></td>
     <td class="img_producto"> <img src="<?php echo $foto; ?>" alt=" <?php echo $data ["descripcion"]  ?>" ></td>
  
 
@@ -94,7 +94,8 @@ $result = mysqli_num_rows($query);
         if($_SESSION['rol'] ==1) {  ?>
     <td>
         
-    <a class="link_add" href="agregar_producto.php? id=<?php echo $data ["codproducto"]; ?>"><i class="fas fa-plus"></i> Agregar </a>
+    <a class="link_add add_product" product="<?php echo $data["codproducto"]; ?>" href="#">
+    <i class="fas fa-plus"></i> Agregar</a>
     |
         <a class="link_edit" href="editar_producto.php? id=<?php echo $data ["codproducto"]; ?>"><i class="fas fa-edit"></i> Editar </a>
 
