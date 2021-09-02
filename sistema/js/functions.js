@@ -27,16 +27,21 @@ $(document).ready(function(){
                         $(".upimg label").remove();
                         
                     }
-              }else{
-              	alert("No selecciono foto");
+            }else{
+            alert("No selecciono foto");
                 $("#img").remove();
-              }              
+            }              
     });
 
     $('.delPhoto').click(function(){
     	$('#foto').val('');
     	$(".delPhoto").addClass('notBlock');
     	$("#img").remove();
+
+        if($("#foto_actual") && $("#foto_remove"))
+        {
+            $("#foto_remove").val('img_producto.png');
+        }
 
     });
     
@@ -48,7 +53,7 @@ $(document).ready(function(){
         var producto = $(this).attr('product');
         var action = 'infoProducto';
 
-         $.ajax({
+        $.ajax({
         url: 'ajax.php',
         type: 'POST',
         async: true,
@@ -59,7 +64,6 @@ $(document).ready(function(){
         if(response != 'error') {
 
             var info = JSON.parse(response);
-         
 
             //$('#producto_id').val(info.codproducto);
             //$('.nameProducto').html(info.descripcion);
@@ -90,13 +94,61 @@ $(document).ready(function(){
         $('.modal').fadeIn();
     });
 
+    //Modal Form Delete Product
+    $('.del_product').click(function(e)
+    {
+        /*Act on the event */
+        e.preventDefault();
+        var producto = $(this).attr('product');
+        var action = 'infoProducto';
+
+        $.ajax({
+        url: 'ajax.php',
+        type: 'POST',
+        async: true,
+        data: {action:action,producto:producto},       
+    
+    success: function(response)
+    {            
+        if(response != 'error') {
+
+            var info = JSON.parse(response);
+
+            //$('#producto_id').val(info.codproducto);
+            //$('.nameProducto').html(info.descripcion);
+
+            //Mostrando el modal desde el js, para reutilizarlo
+
+            $('.bodyModal').html('<form action="" method="post" name="form_del_product" id="form_del_product" onsubmit="event.preventDefault(); delProduct();">'+
+            '<h1><i class="fas fa-cubes" style="font-size: 45pt;"></i> <br> Eliminar Producto</h1>'+           
+            '<p>¿Está seguro de eliminar el siguiente registro? </p>'+
+            '<h2 class="nameProducto"> '+info.descripcion+'</h2> <br>'+
+            '<input type ="hidden" name="producto_id" id="producto_id" value="'+info.codproducto+'" required> '+
+            '<input type ="hidden" name="action" value="delProduct"  required> '+
+            '<div class="alert alertAddProduct"></div>'+
+            '<a href="#" class="btn_cancel" onclick="coloseModal();"><i class="fas fa-ban"></i> Cerrar</a>'+
+            '<button type="submit" class="btn_ok"><i class="far fa-trash-alt"></i> Eliminar</button>'+
+            '</form>');
+        }
+    },
+
+    error: function(error){
+        console.log(error);
+    }
+
+    });
+
+
+        $('.modal').fadeIn();
+    });
+
 
 });
 
 function sendDataProduct() {
     $('.alertAddProduct').html('');
 
-     $.ajax({
+    $.ajax({
         url: 'ajax.php',
         type: 'POST',
         async: true,
@@ -117,6 +169,41 @@ function sendDataProduct() {
             $('.alertAddProduct').html ('<p> Producto guardado correctamente.</p>');
 
         }
+
+        },
+
+    error: function(error){
+        console.log(error);
+    }
+
+    });
+}
+
+// Eliminar Producto
+function delProduct() {
+    var pr = $('#producto_id').val();
+    $('.alertAddProduct').html('');
+
+    $.ajax({
+        url: 'ajax.php',
+        type: 'POST',
+        async: true,
+        data: $('#form_del_product').serialize(),
+
+    
+    success: function(response)
+    {
+        console.log(response);            
+        if(response == 'error') {
+            $('.alertAddProduct').html ('<p style="color: red;"> Error al eliminar el producto.</p>');
+        }
+        else
+        {
+            $('.row'+pr).remove();
+            $('#form_del_product .btn_ok').remove();
+            $('.alertAddProduct').html ('<p> Producto eliminado correctamente.</p>');
+        }
+        
 
         },
 

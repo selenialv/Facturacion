@@ -70,7 +70,7 @@ if(empty($_REQUEST['id'])){
             <br><br>
             <h2>¿Está seguro de eliminar el siguiente registro? </h2>
             <p>Nombre de proveedor: <span> <?php echo $proveedor; ?> </span></p>
-           
+            
             <form method="post" action="">
                 <input type="hidden" name="idproveedor"value="<?php echo $idproveedor; ?>">
                 <a href="lista_proveedor.php" class="btn_cancel"> Cancelar </a>
