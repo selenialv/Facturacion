@@ -177,7 +177,6 @@ $(document).ready(function(){
         
         success: function(response)
         { 
-            console.log(response);
             if(response == 0) {
                 $('#idcliente').val('');
                 $('#nom_cliente').val('');
@@ -211,6 +210,43 @@ $(document).ready(function(){
     });
 
 });
+
+//Crear cliente --- Ventas
+$('#form_new_cliente_venta').submit(function(e){
+    e.preventDefault();
+    $.ajax({
+        url: 'ajax.php',
+        type: 'POST',
+        async: true,
+        data: $('#form_new_cliente_venta').serialize(),
+
+    
+    success: function(response)
+    { 
+        if(response != 'error')
+        //Agregar id al input hiden    
+        {
+            $('#idcliente').val(response);
+            //Bloque campos
+            $('#nom_cliente').attr('disabled', 'disabled');
+            $('#tel_cliente').attr('disabled', 'disabled');
+            $('#dir_cliente').attr('disabled', 'disabled');
+
+            //ocultar boton agregar
+            $('.btn_new_cliente').slideUp();
+            //ocultar boton guardar
+            $('#div_registro_cliente').slideUp();
+        }
+
+        
+    },
+    error: function(error) {
+
+    }
+});
+    
+});
+
 
 
 }); //end ready

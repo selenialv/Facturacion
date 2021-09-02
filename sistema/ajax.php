@@ -99,7 +99,7 @@ if(!empty($_POST))
 
             echo 'error';
         }
-        
+
         //Buscar cliente
 if($_POST['action'] == 'searchCliente')
 {
@@ -125,11 +125,34 @@ if($_POST['action'] == 'searchCliente')
     exit;
 }
         
+//Registrar cliente - ventas
+
+if($_POST['action'] == 'addCliente')
+{
+
+  $nit        = $_POST['nit_cliente'];
+  $nombre     = $_POST['nom_cliente'];
+  $telefono   = $_POST['tel_cliente'];
+  $direccion  = $_POST['dir_cliente'];
+  $usuario_id = $_SESSION['idUser'];
+
+  $query_insert = mysqli_query($conection, "INSERT INTO cliente(nit, nombre, telefono,direccion, usuario_Id)
+  VALUES('$nit', '$nombre', '$telefono', '$direccion', '$usuario_id')");
+
+
+
+  if($query_insert){
+      $codCliente = mysqli_insert_id($conection);
+      $msg = $codCliente;
+  }else {
+      $msg = 'error';
+  }
+  mysqli_close($conection); //Cerrando la conexión
+  echo $msg;
+  exit;
+}
+
     }
-
-
-
-
 
 exit;
 
