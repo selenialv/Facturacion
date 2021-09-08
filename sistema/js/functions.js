@@ -247,7 +247,77 @@ $('#form_new_cliente_venta').submit(function(e){
     
 });
 
+//Buscar Producto
+$('#txt_cod_producto').keyup(function(e){
+    e.preventDefault();
 
+    var producto = $(this).val();
+    var action = 'infoProducto';
+
+    if(producto != '')
+    {
+            $.ajax({
+            url: 'ajax.php',
+            type: 'POST',
+            async: true,
+            data: {action:action,producto:producto},
+    
+            success: function(response)
+            { 
+                if(response != 'error')
+                {
+                    var info = JSON.parse(response);
+                    $('#txt_descripcion').html(info.descripcion);
+                    $('#txt_existencia').html(info.existencia);
+                    $('#txt_cant_producto').val('1');
+                    $('#txt_precio').html(info.precio);
+                    $('#txt_precio_total').html(info.precio);
+
+                    //Activar Cantidad
+                    $('#txt_cant_producto').removeAttr('disabled');
+
+                    //Mostrar botón agregar
+                    $('#add_product_venta').slideDown();
+                }
+                else
+                {
+                    $('#txt_descripcion').html('-');
+                    $('#txt_existencia').html('-');
+                    $('#txt_cant_producto').val('0');
+                    $('#txt_precio').html('0.00');
+                    $('#txt_precio_total').html('0.00');
+
+                    //Bloquear Cantidad
+                    $('#txt_cant_producto').attr('disabled','disabled');
+
+                    //Ocultar botón agregar
+                    $('#add_product_venta').slideUp();
+                }
+            },
+            error: function(error){
+            }
+        });
+    }
+    
+});
+
+//Validar Cantidad del producto antes de agregar
+$('#txt_cant_producto').keyup(function(e)
+{
+    e.preventDefault();
+    var precio_total = $(this).val() * $('#txt_precio').html();
+    $('#txt_precio_total').html(precio_total);
+
+    //Oculta el botón agregar si la cantidad es menor que 1
+    if($(this).val() < 1 || isNaN($(this).val()) )
+    {
+        $('#add_product_venta').slideUp();
+    }
+    else
+    {
+        $('#add_product_venta').slideDown();
+    }
+});
 
 }); //end ready
 

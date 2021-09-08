@@ -9,13 +9,13 @@ include "../conexion.php";
     <meta charset="UTF-8">
     <?php include "includes/scripts.php";?>
    
-    <title>Nueva Ventas</title>
+    <title>Nueva Venta</title>
 </head>
 <body>
 <?php include "includes/header.php";?>
    <section id="container">
        <div class="title_page">
-           <h1> <i class="fas fa-cube"> </i> Nueva venta</h1>
+           <h1> <i class="fas fa-cube"> </i> Nueva Venta</h1>
 </div>
 <div class="datos_cliente">
     <div class="action_cliente">
@@ -28,7 +28,7 @@ include "../conexion.php";
    <input type="hidden" name="action" value="addCliente">
    <input type="hidden" id="idCliente" name="idCliente" value="" required>
    <div class="wd30">
-       <label> Nit </label>
+       <label> RUC </label>
        <input type="text" name="nit_cliente" id="nit_cliente">
 </div>
 <div class="wd30">
@@ -54,7 +54,7 @@ include "../conexion.php";
     <div class="datos">
         <div class="wd50">
             <label> Vendedor </label>
-            <p> Carlos estrada </p>
+            <p><?php echo $_SESSION['nombre']; ?></p>
 </div>
 <div class="wd50">
     <label> Acciones </label>
@@ -76,7 +76,7 @@ include "../conexion.php";
             <th width="100px"> Cantidad </th>
             <th class="textright"> Precio </th>
             <th class="textright"> Precio total </th>
-            <th> Accion </th>
+            <th> Acción </th>
 </tr>
 <tr>
     <td> <input type="text" name="txt_cod_producto" id="txt_cod_producto"> </td>
@@ -101,7 +101,7 @@ include "../conexion.php";
 <tbody id="detalle_venta">
 <tr>
     <td>1 </td>
-    <td colspan="2">Mouse usb </td>
+    <td colspan="2">Mouse USB </td>
     <td class="textcenter">1 </td>
     <td class="textright">100.00 </td>
     <td class="textright">100.00 </td>

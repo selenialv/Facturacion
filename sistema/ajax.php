@@ -9,7 +9,7 @@ if(!empty($_POST))
     {
         $producto_id = $_POST['producto'];
 
-        $query = mysqli_query($conection, "SELECT codproducto, descripcion FROM
+        $query = mysqli_query($conection, "SELECT codproducto,descripcion,existencia,precio FROM
         producto WHERE codproducto = $producto_id AND estatus =1");
 
         mysqli_close($conection);
