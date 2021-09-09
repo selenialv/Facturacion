@@ -2,6 +2,8 @@
 <?php
 session_start();
 include "../conexion.php";
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,41 +101,25 @@ include "../conexion.php";
 </tr>
 </thead>
 <tbody id="detalle_venta">
-<tr>
-    <td>1 </td>
-    <td colspan="2">Mouse USB </td>
-    <td class="textcenter">1 </td>
-    <td class="textright">100.00 </td>
-    <td class="textright">100.00 </td>
-    <td class="">
-        <a class="link_delete" href="#" onclick="event.preventDefault();
-        del_product_detalle(1);"> <i class="far fa-trash-alt"> </i></a>
-        </td>
-</tr>
+    <!--Contenido AJAX-->
 </tbody>
-<tfoot>
-<tr> 
-    <td colspan="5" class="textright">SUBTOTAL C$. </td>
-    <td class="textright"> 1000.00</td>
-
-</tr>
-<tr> 
-    <td colspan="5" class="textright">IVA (12%) </td>
-    <td class="textright"> 500</td>
-</tr>
-<tr> 
-    <td colspan="5" class="textright">TOTAL C$. </td>
-    <td class="textright"> 1000.00</td>
-
-</tr>
-
-
+<tfoot id="detalle_totales">
+    <!--Contenido AJAX-->
 </tfoot>
 </table>
 
 </section>
 
     <?php include "includes/footer.php";?>
+
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            var usuarioid = '<?php echo $_SESSION['idUser']; ?>';
+            serchForDetalle(usuarioid);
+        });
+
+    </script>
     
 </body>
 </html>

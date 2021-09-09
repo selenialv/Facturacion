@@ -306,10 +306,11 @@ $('#txt_cant_producto').keyup(function(e)
 {
     e.preventDefault();
     var precio_total = $(this).val() * $('#txt_precio').html();
+    var existencia = parseInt($('#txt_existencia').html());
     $('#txt_precio_total').html(precio_total);
 
     //Oculta el botón agregar si la cantidad es menor que 1
-    if($(this).val() < 1 || isNaN($(this).val()) )
+    if( ($(this).val() < 1 || isNaN($(this).val())) || ( $(this).val() > existencia) )
     {
         $('#add_product_venta').slideUp();
     }
@@ -319,7 +320,86 @@ $('#txt_cant_producto').keyup(function(e)
     }
 });
 
+
+//Agregar producto al detalle
+$('#add_product_venta').click(function(e)
+{
+    e.preventDefault();
+    if($('#txt_cant_producto').val() > 0)
+    {
+        var codproducto = $('#txt_cod_producto').val();
+        var cantidad = $('#txt_cant_producto').val();
+        var action = 'addProductoDetalle';
+
+        $.ajax({
+            url : 'ajax.php',
+            type : "POST",
+            async : true,
+            data : {action:action,producto:codproducto,cantidad:cantidad},
+
+            success: function(response)
+            {
+                if(response != 'error')
+                {
+                    var info = JSON.parse(response);
+                    $('#detalle_venta').html(info.detalle);
+                    $('#detalle_totales').html(info.totales);
+
+                    $('#txt_cod_producto').val('');
+                    $('#txt_descripcion').html('-');
+                    $('#txt_existencia').html('-');
+                    $('#txt_cant_producto').val('0');
+                    $('#txt_precio').html('0.00');
+                    $('#txt_precio_total').html('0.00');
+
+                    //Bloquear cantidad
+                    $('#txt_cant_producto').attr('disabled', 'disabled');
+
+                    //Ocultar botón agregar
+                    $('#add_product_venta').slideUp();
+                }
+                else
+                {
+                    console.log('no data');
+                }
+            },
+            error: function(error){
+            }
+        });
+    }
+});
+
+
 }); //end ready
+
+function serchForDetalle(id)
+{
+    var action = 'serchForDetalle';
+    var user = id;
+
+    $.ajax({
+        url : 'ajax.php',
+        type : "POST",
+        async : true,
+        data : {action:action,user:user},
+
+        success: function(response)
+        {
+            if(response != 'error')
+                {
+                    var info = JSON.parse(response);
+                    $('#detalle_venta').html(info.detalle);
+                    $('#detalle_totales').html(info.totales);
+                }
+                else
+                {
+                    console.log('no data');
+                }
+        },
+        error: function(error){
+        }
+    });
+}
 
 function getUrl(){
     var loc = window.location;
