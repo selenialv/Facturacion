@@ -361,7 +361,9 @@ $('#add_product_venta').click(function(e)
                 else
                 {
                     console.log('no data');
+                    
                 }
+                viewProcesar();
             },
             error: function(error){
             }
@@ -369,8 +371,65 @@ $('#add_product_venta').click(function(e)
     }
 });
 
-
+ 
 }); //end ready
+
+function del_product_detalle(correlativo){
+
+
+    var action = 'delProductoDetalle';
+    var id_detalle = correlativo;
+
+    $.ajax({
+        url : 'ajax.php',
+        type : "POST",
+        async : true,
+        data : {action:action,id_detalle:id_detalle},
+
+        success: function(response)
+        {
+            if(response != 'error')
+            
+            {
+
+                var info = JSON.parse(response);
+                $('#detalle_venta').html(info.detalle);
+                $('#detalle_totales').html(info.totales);
+
+                $('#txt_cod_producto').val('');
+                $('#txt_descripcion').html('-');
+                $('#txt_existencia').html('-');
+                $('#txt_cant_producto').val('0');
+                $('#txt_precio').html('0.00');
+                $('#txt_precio_total').html('0.00');
+
+                //Bloquear cantidad
+                $('#txt_cant_producto').attr('disabled', 'disabled');
+
+                //Ocultar botón agregar
+                $('#add_product_venta').slideUp();
+
+            }
+            
+            else{
+                $('#detalle_venta').html('');
+                $('#detalle_totales').html('');
+
+            }
+            viewProcesar();
+        },
+        error: function(error){
+        }
+    });
+}
+//Mostrar/ ocultar botón  procesar
+function viewProcesar(){
+    if($('#detalle_venta tr').length > 0){
+        $('#btn_facturar_venta').show();
+    } else {
+        $('#btn_facturar_venta').hide();
+    }
+}
 
 function serchForDetalle(id)
 {
@@ -395,6 +454,7 @@ function serchForDetalle(id)
                 {
                     console.log('no data');
                 }
+                viewProcesar();
         },
         error: function(error){
         }
