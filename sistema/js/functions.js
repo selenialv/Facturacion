@@ -404,6 +404,44 @@ $('#btn_anular_venta').click(function(e){
 
 });
 
+
+//facturar venta
+$('#btn_facturar_venta').click(function(e){
+    e.preventDefault();
+    
+    var rows = $('#detalle_venta tr').length;
+    if(rows > 0)
+    {
+        var action = 'procesarVenta';
+        var codcliente = $('#idcliente').val();
+       
+        $.ajax ({
+            url: 'ajax.php',
+            type: "POST",
+            async : true,
+            data : {action:action,codcliente:codcliente},
+
+            success: function(response)
+            {
+               if(response != 'error'){
+                   location.reload();
+               }
+               else {
+                   console.log('no data');
+               }
+            },
+
+            error:function(error)
+            {
+
+            }
+
+        });
+    }
+
+});
+
+
  
 }); //end ready
 

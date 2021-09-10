@@ -27,7 +27,7 @@ include "../conexion.php";
 
 <form name ="form_new_cliente_venta" id="form_new_cliente_venta" class="datos">
    <input type="hidden" name="action" value="addCliente">
-   <input type="hidden" id="idCliente" name="idCliente" value="" required>
+   <input type="hidden" id="idcliente" name="idcliente" value="" required>
    <div class="wd30">
        <label> RUC </label>
        <input type="text" name="nit_cliente" id="nit_cliente">

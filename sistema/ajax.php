@@ -142,8 +142,8 @@ if($_POST['action'] == 'addCliente')
 
 
   if($query_insert){
-      $codCliente = mysqli_insert_id($conection);
-      $msg = $codCliente;
+      $codcliente = mysqli_insert_id($conection);
+      $msg = $codcliente;
   }else {
       $msg = 'error';
   }
@@ -411,7 +411,7 @@ if($_POST['action'] == 'delProductoDetalle') {
     exit;
 }
 
-    
+    //anular venta
     if($_POST['action'] == 'anularVenta'){
         $token = md5($_SESSION['idUser']);
         $query_del = mysqli_query($conection, "DELETE FROM detalle_temp WHERE token_user = '$token'");
@@ -421,6 +421,38 @@ if($_POST['action'] == 'delProductoDetalle') {
         }else {
             echo 'error';
         }
+        exit;
+    }
+
+    //procesar
+    if($_POST['action'] == 'procesarVenta'){
+        if(empty($_POST['codcliente'])){
+            $codcliente =1;
+        }
+        else{
+            $codcliente = $_POST['codcliente'];
+        }
+        $token       = md5($_SESSION['idUser']);
+        $usuario     = $_SESSION['idUser'];
+
+        $query = mysqli_query($conection, "SELECT * FROM detalle_temp WHERE token_user = '$token'");
+        $result = mysqli_num_rows($query);
+
+        if($result > 0) {
+            $query_procesar = mysqli_query($conection, "CALL procesar_venta($usuario, $codcliente, '$token')");
+            $result_detalle= mysqli_num_rows($query_procesar);
+
+            if($result_detalle > 0 ){
+                $data = mysqli_fetch_assoc($query_procesar);
+                echo json_encode($data, JSON_UNESCAPED_UNICODE);
+            }
+            else {
+                echo "error";
+            }
+        }else{
+            echo "error";
+        }
+        mysqli_close($conection); //cerrar conexión
         exit;
     }
 }
