@@ -411,7 +411,19 @@ if($_POST['action'] == 'delProductoDetalle') {
     exit;
 }
 
+    
+    if($_POST['action'] == 'anularVenta'){
+        $token = md5($_SESSION['idUser']);
+        $query_del = mysqli_query($conection, "DELETE FROM detalle_temp WHERE token_user = '$token'");
+        mysqli_close($conection);
+        if($query_del){
+            echo 'ok';
+        }else {
+            echo 'error';
+        }
+        exit;
     }
+}
 
 exit;
 
