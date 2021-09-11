@@ -2,7 +2,6 @@
 session_start();
 include "../conexion.php";
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +15,7 @@ include "../conexion.php";
 <?php include "includes/header.php";?>
    <section id="container">
        <div class="title_page">
-           <h1> <i class="fas fa-cube"> </i> Nueva Venta</h1>
+           <h1> <i class="far fa-file-alt"></i> Nueva Venta</h1>
 </div>
 <div class="datos_cliente">
     <div class="action_cliente">
@@ -72,7 +71,7 @@ include "../conexion.php";
     <thead>
         <tr> 
             <th width="100px">Código </th>
-            <th> Descripción </th>
+            <th > Descripción </th>
             <th> Existencia </th>
             <th width="100px"> Cantidad </th>
             <th class="textright"> Precio </th>
@@ -91,7 +90,7 @@ include "../conexion.php";
 </tr>
 <tr> 
     <th>Código </th>
-    <th colspan="2">Descripción</th>
+    <th>Descripción</th>
     <th> Cantidad<th>
     <th class="textright">Precio </th>
     <th class="textright">Precio total </th>

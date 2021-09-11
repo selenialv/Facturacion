@@ -39,7 +39,7 @@
 					 }
 				?>
 				<?php 
-					 if($_SESSION['rol'] == 1) //Seguridad
+					 if($_SESSION['rol'] == 1 ) //Seguridad
 					 { 
 					 ?>
 				<li class="principal">
@@ -47,17 +47,20 @@
 					<ul>
 						<li><a href="registro_producto.php"><i class="fas fa-plus"></i> Nuevo Producto</a></li>
 						<?php 
-					 }
+					 
 				?>
 						<li><a href="lista_producto.php"><i class="fas fa-cube"></i> Lista de Productos</a></li>
 					</ul>
 				</li>
+				<?php } ?>
 			
+			
+              
 				<li class="principal">
-					<a href="#">Ventas</a>
+					<a href="#"><i class="far fa-file-alt"></i> Ventas</a>
 					<ul>
-						<li><a href="nueva_venta.php">Nueva venta</a></li>
-						<li><a href="#">Ventas</a></li>
+						<li><a href="nueva_venta.php"> <i class="fas fa-plus"></i> Nueva venta</a></li>
+						<li><a href="#"><i class="far fa-file-alt"></i>  Ventas</a></li>
 					</ul>
 				</li>
 			</ul>
