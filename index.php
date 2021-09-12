@@ -64,7 +64,7 @@ if (!empty($_POST))
     <section id="container">
         <form action="" method="post">
         <h3> Iniciar sesión </h3>
-        <img width="50" height="60" src="img/user.png" alt="Login">
+        <img width="100" height="100" src="img/user.png" alt="Login">
 
         <input type= "text" name= "usuario" placeholder="Usuario">
         <input type= "password" name= "clave" placeholder="Contraseña">

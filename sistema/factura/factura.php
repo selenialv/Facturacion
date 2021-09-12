@@ -19,7 +19,7 @@
 		<tr>
 			<td class="logo_factura">
 				<div>
-					<img src="img/logo.png">
+					<img width="200" height="100" src="img/logo.png">
 				</div>
 			</td>
 			<td class="info_empresa">
@@ -31,7 +31,7 @@
 					<span class="h2"><?php echo strtoupper($configuracion['nombre']); ?></span>
 					<p><?php echo $configuracion['razon_social']; ?></p>
 					<p><?php echo $configuracion['direccion']; ?></p>
-					<p>NIT: <?php echo $configuracion['nit']; ?></p>
+					<p>RUC: <?php echo $configuracion['nit']; ?></p>
 					<p>Teléfono: <?php echo $configuracion['telefono']; ?></p>
 					<p>Email: <?php echo $configuracion['email']; ?></p>
 				</div>
@@ -57,7 +57,7 @@
 					<span class="h3">Cliente</span>
 					<table class="datos_cliente">
 						<tr>
-							<td><label>Nit:</label><p><?php echo $factura['nit']; ?></p></td>
+							<td><label>RUC:</label><p><?php echo $factura['nit']; ?></p></td>
 							<td><label>Teléfono:</label> <p><?php echo $factura['telefono']; ?></p></td>
 						</tr>
 						<tr>
@@ -121,7 +121,7 @@
 		</tfoot>
 	</table>
 	<div>
-		<p class="nota">Si usted tiene preguntas sobre esta factura, <br>pongase en contacto con nombre, teléfono y Email</p>
+		<p class="nota">Si usted tiene preguntas sobre esta factura, <br>póngase en contacto con nombre, teléfono y email</p>
 		<h4 class="label_gracias">¡Gracias por su compra!</h4>
 	</div>
 
