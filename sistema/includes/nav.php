@@ -60,7 +60,7 @@
 					<a href="#"><i class="far fa-file-alt"></i> Ventas</a>
 					<ul>
 						<li><a href="nueva_venta.php"> <i class="fas fa-plus"></i> Nueva venta</a></li>
-						<li><a href="#"><i class="far fa-file-alt"></i>  Ventas</a></li>
+						<li><a href="ventas.php"><i class="far fa-file-alt"></i>  Ventas</a></li>
 					</ul>
 				</li>
 			</ul>
