@@ -495,6 +495,15 @@ $('#btn_facturar_venta').click(function(e){
      $('.modal').fadeIn();
  });
 
+ // ver factura
+ $('.view_factura').click(function(e){
+     e.preventDefault();
+     var codCliente = $(this).attr('cl');
+      var noFactura = $(this).attr('f');  
+      generarPDF(codCliente, noFactura);
+
+
+ });
  
 }); //end ready
 
