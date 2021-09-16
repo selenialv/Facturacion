@@ -495,10 +495,42 @@ $('#btn_facturar_venta').click(function(e){
      $('.modal').fadeIn();
  });
 
-
-
  
 }); //end ready
+
+//Anular factura
+function anularFactura(){
+    var noFactura = $('#no_factura').val();
+    var action = 'anularFactura';
+
+    $.ajax ({
+        url : 'ajax.php',
+        type : "POST",
+        async : true, 
+        data : {action:action, noFactura:noFactura},
+
+        success: function(response)
+        {
+            if(response == 'error'){
+                $('.alertAddProduct').html('<p style="color:red;">Error al anular la factura.</p>');
+                
+            }
+            else{
+                $('#row_'+noFactura+' .estado').html('<span class="anulada">Anulada </span>');
+                $('#form_anular_factura .btn_ok').remove();
+                $('#row_' +noFactura+'.div_factura').html('<button type="button" class="btn_anular inactive"><i class="fas fa-ban"></i></button>');
+                $('.alertAddProduct').html('<p>Factura anulada.</p>');
+
+            }
+        },
+        error : function(error) {
+
+        }
+
+        
+    });
+}
+
 function generarPDF(cliente, factura){
     var ancho = 1000;
     var alto = 800;
