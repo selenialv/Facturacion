@@ -445,6 +445,57 @@ $('#btn_facturar_venta').click(function(e){
 
 });
 
+ //Modal Form anular factura 
+ $('.anular_factura').click(function(e)
+ {
+     /*Act on the event */
+     e.preventDefault();
+     var nofactura = $(this).attr('fac');
+     var action = 'infoFactura';
+
+     $.ajax({
+     url: 'ajax.php',
+     type: 'POST',
+     async: true,
+     data: {action:action,nofactura:nofactura},       
+ 
+ success: function(response)
+ {            
+     if(response != 'error') {
+
+         var info = JSON.parse(response);
+      
+         $('.bodyModal').html('<form action="" method="post" name="form_anular_factura" id="form_anular_factura" onsubmit="event.preventDefault(); anularFactura();">'+
+         '<h1><i class="fas fa-cubes" style="font-size: 45pt;"></i> <br> Anular Factura <br> </h1>'+           
+         '<p>¿Está seguro de anular la factura? </p>'+
+
+         '<p><strong>No.' + info.nofactura+'</strong></p>'+
+         '<p><strong>Monto. C$.' + info.totalfactura+'</strong></p>'+
+         '<p><strong>Fecha.' + info.fecha+'</strong></p>'+
+         '<input type="hidden" name="action" value="anularFactura">'+
+         '<input type="hidden" name="no_factura" id="no_factura" value="'+info.nofactura+'" required>'+
+         
+         '<div class="alert alertAddProduct"></div>'+
+         '<button type="submit" class="btn_ok"><i class="far fa-trash-alt"></i> Anular</button>'+
+         '<a href="#" class="btn_cancel" onclick="coloseModal();"><i class="fas fa-ban"></i> Cerrar</a>'+
+        
+         '</form>');
+
+        
+     }
+ },
+
+ error: function(error){
+     console.log(error);
+ }
+
+ });
+
+
+     $('.modal').fadeIn();
+ });
+
+
 
  
 }); //end ready
