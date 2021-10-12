@@ -496,16 +496,91 @@ $('#btn_facturar_venta').click(function(e){
  });
 
  // ver factura
- $('.view_factura').click(function(e){
-     e.preventDefault();
-     var codCliente = $(this).attr('cl');
-      var noFactura = $(this).attr('f');  
-      generarPDF(codCliente, noFactura);
+$('.view_factura').click(function(e){
+    e.preventDefault();
+    var codCliente = $(this).attr('cl');
+    var noFactura = $(this).attr('f');  
+    generarPDF(codCliente, noFactura);
 
 
- });
- 
+});
+
+//Cambiar contraseña
+$('.newPass').keyup(function(){
+    validPass();
+});
+
+//Form Cambiar contraseña
+$('#frmChangePass').submit(function(e){
+    e.preventDefault();
+
+    var passActual = $('#txtPassUser').val();
+    var passNuevo = $('#txtNewPassUser').val();
+    var confirmPassNuevo = $('#txtPassConfirm').val();
+    var action = "changePassword";
+
+    if(passNuevo != confirmPassNuevo)
+    {
+        $('.alertChangePass').html('<p style="color:red;">Las contraseñas no son iguales.</p>');
+        $('.alertChangePass').slideDown();
+        return false;
+    }
+
+    if(passNuevo.length < 5 )
+    {
+        $('.alertChangePass').html('<p style="color:red;">La nueva contraseña debe ser de 5 caracteres como mínimo.</p>');
+        $('.alertChangePass').slideDown();
+        return false;
+    }
+
+    $.ajax({
+        url : 'ajax.php',
+        type :"POST",
+        async : true,
+        data : {action:action,passActual:passActual,passNuevo:passNuevo},
+
+        success: function(response)
+        {
+            var info = JSON.parse(response);
+            if(info.cod == '00')
+            {
+                $('.alertChangePass').html('<p style="color:green;">'+info.msg+'</p>');
+                $('#frmChangePass')[0].reset();
+            }
+            else
+            {
+                $('.alertChangePass').html('<p style="color:red;">'+info.msg+'</p>');
+            }
+            $('.alertChangePass').slideDown();
+        },
+        error: function(error){
+        }
+    });
+});
+
+
 }); //end ready
+
+function validPass(){
+    var passNuevo = $('#txtNewPassUser').val();
+    var confirmPassNuevo = $('#txtPassConfirm').val();
+    if(passNuevo != confirmPassNuevo)
+    {
+        $('.alertChangePass').html('<p style="color:red;">Las contraseñas no son iguales.</p>');
+        $('.alertChangePass').slideDown();
+        return false;
+    }
+
+    if(passNuevo.length < 5 )
+    {
+        $('.alertChangePass').html('<p style="color:red;">La nueva contraseña debe ser de 5 caracteres como mínimo.</p>');
+        $('.alertChangePass').slideDown();
+        return false;
+    }
+
+    $('.alertChangePass').html('');
+    $('.alertChangePass').slideUp();
+}
 
 //Anular factura
 function anularFactura(){

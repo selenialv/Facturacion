@@ -464,7 +464,8 @@ link_edit {
   margin-top: 15px;
 }
 #form_add_product,
-#form_del_product, #form_anular_factura {
+#form_del_product,
+#form_anular_factura {
   width: 420px;
   text-align: center;
 }
@@ -627,15 +628,14 @@ link_edit {
 }
 /*=========== PANEL DE CONTROL */
 .titlePanelControl {
-  width:100%;
+  width: 100%;
   background: #fff;
   padding: 5px 15px;
   margin-bottom: 10px;
   font-size: 18pt !important;
-  color: #0A4651;
-
+  color: #0a4651;
 }
-.divContainer{
+.divContainer {
   margin-bottom: 20px;
 }
 .dashboard {
@@ -656,14 +656,14 @@ link_edit {
   font-size: 27pt;
   text-align: center;
 }
-.dashboard p{
+.dashboard p {
   color: #3279a7;
 }
-.dashboard a span{
+.dashboard a span {
   font-weight: bold;
   font-size: 14pt;
 }
-.containerPerfil{
+.containerPerfil {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -673,12 +673,14 @@ link_edit {
   align-items: flex-start;
   flex-wrap: wrap;
 }
-.containerDataUser, .containerDataEmpresa{
+.containerDataUser,
+.containerDataEmpresa {
   width: 500px;
   background-color: #fff;
   padding: 20px;
 }
-.logoUser, .logoEmpresa{
+.logoUser,
+.logoEmpresa {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -691,40 +693,47 @@ link_edit {
   border-radius: 50%;
   margin: 20px auto;
   padding: 25px;
-  background: #E9E9E9;
+  background: #e9e9e9;
 }
-.logoUser img, .logoEmpresa img{
+.logoUser img,
+.logoEmpresa img {
   width: 100%;
   height: 100%;
 }
-.divInfoSistema h4{
+.divInfoSistema h4 {
   background: #3279a7;
   padding: 5px 10px;
-  color: #FFF;
+  color: #fff;
   border-radius: 3px;
   text-align: center;
   margin-bottom: 10px;
 }
-.divDataUser > div{
+.divDataUser > div {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
   display: -o-flex;
   display: flex;
-
 }
-.divDataUser label{
+.divDataUser label {
   width: 150px;
   margin: 0;
   margin-bottom: 10px;
   margin-top: 10px;
 }
-.divDataUser span{
+.divDataUser span {
   padding: 5px;
 }
-.divInfoSistema form{
-  padding:20px;
+.divInfoSistema form {
+  padding: 20px;
 }
-.divInfoSistema input{
-  margin: 10px;
+.divInfoSistema input {
+  margin-bottom: 10px;
+}
+.divInfoSistema button {
+  width: 100%;
+}
+.alertChangePass {
+  text-align: center;
+  font-weight: bold;
 }

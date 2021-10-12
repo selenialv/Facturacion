@@ -91,97 +91,101 @@ if($result_das > 0) {
 		</div>
 
 
-	<div class="divInfoSistema">
-		<div>
-			<h1 class="titlePanelControl">Configuración</h1>
-			
-</div> 
-        <div class="containerPerfil">
+		<div class="divInfoSistema">
+			<div>
+				<h1 class="titlePanelControl">Configuración</h1>
+			</div> 
+        	<div class="containerPerfil">
 			<div class="containerDataUser">
 				<div class="logoUser">
 					<img src="img/logoUser.png">
-</div>
-        <div class="divDataUser">
-			<h4> Información Personal </h4>
-			<div>
-				<label> Nombre: </label> <span> Selenia </span>
-            </div>
-           
-			<div>
-				<label> Correo: </label> <span> Selenia </span>
-             </div>
-			 <h4> Datos usuario </h4>
-			 <div>
-				 <label>Rol:</label> <span> selenia </span>
-            </div>
-			<div>
-			<label>Usuario:</label> <span> admin </span>
-            </div>
-			<h4>Cambiar contraseña </h4>
-			<form action="" method="post" name="frmChangePass" id="frmChangePass">
+				</div>
+        		<div class="divDataUser">
+					<h4> Información Personal </h4>
+				
 				<div>
-					<input type="password" name="txtPassUser" id="textPassUser" placeholder="Contraseña actual" required>
-                </div>
+					<label>Nombre:</label> <span><?= $_SESSION['nombre']; ?></span>
+            	</div>
+        		<div>
+					<label>Correo:</label> <span><?= $_SESSION['email']; ?></span>
+            	</div>
+				
+				<h4>Datos usuario</h4>
 				<div>
-					<input type="password" name="txtNewPassUser" id="textNewPassUser" placeholder="Nueva contraseña" required>
-                </div>
+					<label>Rol:</label> <span><?= $_SESSION['rol_name']; ?></span>
+            	</div>
 				<div>
-					<button type="submit" class="btn_save  btnChangePass"> <i class="fas fa-key"></i>Cambiar contraseña </button>
-                </div>
+					<label>Usuario:</label> <span><?= $_SESSION['user']; ?></span>
+            	</div>
 
-     </form>			
+				<h4>Cambiar contraseña</h4>
+				<form action="" method="post" name="frmChangePass" id="frmChangePass">
+					<div>
+						<input type="password" name="txtPassUser" id="txtPassUser" placeholder="Contraseña actual" required>
+                	</div>
+					<div>
+						<input class="newPass" type="password" name="txtNewPassUser" id="txtNewPassUser" placeholder="Nueva contraseña" required>
+                	</div>
+					<div>
+						<input class="newPass" type="password" name="txtPassConfirm" id="txtPassConfirm" placeholder="Confirmar contraseña" required>
+                	</div>
+					<div class="alertChangePass" style="display: none;">
+					</div>
+					<div>
+						<button type="submit" class="btn_save  btnChangePass"> <i class="fas fa-key"></i> Cambiar contraseña</button>
+                	</div>
+    			</form>			
+				</div>
+    		
+			</div>
+			<div class="containerDataEmpresa">
+				<div class="logoEmpresa">
+					<img src="img/logoEmpresa.png">
+				</div>
+			<h4>Datos del negocio<h4>
+
+
+
+		<form action =""	 method= "post" name="frmEmpresa" id="frmempresa">
+			<input type="hidden" name="action" value ="udpateDataEmpresa"> 
+
+			<div>
+				<label style="color:black;"> RUC: </label><input type="text" name="txtNit" id="txtNit" placeholder="RUC del negocio" value=""required>
+			</div>
+			<div>
+			<label style="color:black;"> Nombre: </label><input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre del negocio" value=""required>
+			</div>
+			<div>
+			<label style="color:black;"> Razón social: </label><input type="text" name="txtRSocial" id="txtRSocial" placeholder="Razón social" value=""required>
+			</div>
+			<div>
+			<label style="color:black;"> Teléfono: </label><input type="text" name="txtTelEmpresa" id="txtTelEmpresa" placeholder="Teléfono del negocio" value=""required>
+			</div>
+			<div>
+			<label style="color:black;"> Correo electrónico: </label><input type="email" name="txtEmailEmpresa" id="txtEmailEmpresa" placeholder="Correo del negocio" value=""required>
+			</div>
+			<div>
+			<label style="color:black;"> Dirección: </label><input type="text" name="txtDirEmpresa" id="txtDirEmpresa" placeholder="Dirección del negocio" value=""required>
+			</div>
+			<div>
+			<label style="color:black;"> IVA (%): </label><input type="text" name="txtIva" id="txtIva" placeholder="Impuesto al valor agregado
+			(IVA) " value=""required>
+			</div>
+			
+			<div class="alertFormEmpresa" style="display: none;"> </div>
+			<div>
+				<button type="submit" class="btn_save btnChangePass"> <i class="far fa-save fa-lg"></i> Guardar datos </button>
+				
+				</div>
+			</form>
+
+			</div>
+
+
 		</div>
-     </div>
+		</div>
+			</section>
 
-<div class="containerDataEmpresa">
-
-	<div class="logoEmpresa">
-	     <img src="img/logoEmpresa.png">
-    </div>
-	<h4> Datos del negocio <h4>
-
-
-
-   <form action =""	 method= "post" name="frmEmpresa" id="frmempresa">
-	   <input type="hidden" name="action" value ="udpateDataEmpresa"> 
-
-	   <div>
-		   <label style="color:black;"> Ruc: </label><input type="text" name="txtNit" id="txtNit" placeholder="Ruc del negocio" value=""required>
-       </div>
-	   <div>
-	   <label style="color:black;"> Nombre: </label><input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre del negocio" value=""required>
-       </div>
-	   <div>
-	   <label style="color:black;"> Razon social: </label><input type="text" name="txtRSocial" id="txtRSocial" placeholder="Razon social" value=""required>
-       </div>
-	   <div>
-	   <label style="color:black;"> Teléfono: </label><input type="text" name="txtTelEmpresa" id="txtTelEmpresa" placeholder="Teléfono del negocio" value=""required>
-       </div>
-	   <div>
-	   <label style="color:black;"> Correo electrónico: </label><input type="email" name="txtEmailEmpresa" id="txtEmailEmpresa" placeholder="Correo del negocio" value=""required>
-       </div>
-	   <div>
-	   <label style="color:black;"> Dirección: </label><input type="text" name="txtDirEmpresa" id="txtDirEmpresa" placeholder="Dirección del negocio" value=""required>
-       </div>
-	   <div>
-	   <label style="color:black;"> IVA (%): </label><input type="text" name="txtIva" id="txtIva" placeholder="Impuesto al valor agregado
-	   (IVA) " value=""required>
-       </div>
-	   
-	   <div class="alertFormEmpresa" style="display: none;"> </div>
-       <div>
-		   <button type="submit" class="btn_save btnChangePass"> <i class="far fa-save fa-lg"></i> Guardar datos </button>
-         
-           </div>
-    </form>
-
-</div>
-
-
-</div>
-</div>
-	</section>
-
-	<?php  include "includes/footer.php"; ?>
-</body>
-</html>
+			<?php  include "includes/footer.php"; ?>
+		</body>
+		</html>
