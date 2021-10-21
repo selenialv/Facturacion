@@ -15,10 +15,35 @@ session_start();
 <?php  include "includes/header.php"; 
 include "../conexion.php";
 
+//Datos empresa
+$nit = '';
+$nombreEmpresa = '';
+$razonSocial = '';
+$telEmpresa = '';
+$emailEmpresa = '';
+$dirEmpresa = '';
+$iva = '';
+
+$query_empresa = mysqli_query($conection,"SELECT * FROM configuracion");
+$row_empresa = mysqli_num_rows($query_empresa);
+if($row_empresa > 0)
+{
+	while($arrInfoEmpresa = mysqli_fetch_assoc($query_empresa))
+	{
+		$nit = $arrInfoEmpresa['nit'];
+		$nombreEmpresa = $arrInfoEmpresa['nombre'];
+		$razonSocial = $arrInfoEmpresa['razon_social'];
+		$telEmpresa = $arrInfoEmpresa['telefono'];
+		$emailEmpresa = $arrInfoEmpresa['email'];
+		$dirEmpresa = $arrInfoEmpresa['direccion'];
+		$iva = $arrInfoEmpresa['iva'];
+	}
+}
+
 
 $query_dash = mysqli_query($conection, "CALL dataDashboard();");
-$result_das = mysqli_num_rows($query_dash);
-if($result_das > 0) {
+$result_dash = mysqli_num_rows($query_dash);
+if($result_dash > 0) {
 	$data_dash = mysqli_fetch_assoc($query_dash);
 	mysqli_close($conection);
 
@@ -39,7 +64,7 @@ if($result_das > 0) {
 	if($_SESSION['rol'] == 1)
 	{
 		?>
-	<a href="lista_usuarios.php">
+	<a href="lista_usuario.php">
 		<i class="fas fa-users"> </i>
 		<P>
 		   <strong> Usuarios</strong></br>
@@ -138,38 +163,38 @@ if($result_das > 0) {
 				</div>
     		
 			</div>
+			<?php if($_SESSION['rol'] == 1){ ?>
 			<div class="containerDataEmpresa">
 				<div class="logoEmpresa">
 					<img src="img/logoEmpresa.png">
 				</div>
 			<h4>Datos del negocio<h4>
 
-
-
-		<form action =""	 method= "post" name="frmEmpresa" id="frmempresa">
-			<input type="hidden" name="action" value ="udpateDataEmpresa"> 
+		<form action =""	 method= "post" name="frmEmpresa" id="frmEmpresa">
+			<input type="hidden" name="action" value ="updateDataEmpresa"> 
 
 			<div>
-				<label style="color:black;"> RUC: </label><input type="text" name="txtNit" id="txtNit" placeholder="RUC del negocio" value=""required>
+				<label style="color:black;"> RUC: </label><input type="text" name="txtNit" id="txtNit" placeholder="RUC del negocio" value="<?= $nit; ?>" required>
 			</div>
 			<div>
-			<label style="color:black;"> Nombre: </label><input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre del negocio" value=""required>
+			<label style="color:black;"> Nombre: </label><input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre del negocio" value="<?= $nombreEmpresa; ?>" required>
 			</div>
 			<div>
-			<label style="color:black;"> Razón social: </label><input type="text" name="txtRSocial" id="txtRSocial" placeholder="Razón social" value=""required>
+			<label style="color:black;"> Razón social: </label><input type="text" name="txtRSocial" id="txtRSocial" placeholder="Razón social" value="<?= $razonSocial; ?>" required>
 			</div>
 			<div>
-			<label style="color:black;"> Teléfono: </label><input type="text" name="txtTelEmpresa" id="txtTelEmpresa" placeholder="Teléfono del negocio" value=""required>
+			<label style="color:black;"> Teléfono: </label><input type="text" name="txtTelEmpresa" id="txtTelEmpresa" placeholder="Teléfono del negocio" value="<?= $telEmpresa; ?>" required>
 			</div>
 			<div>
-			<label style="color:black;"> Correo electrónico: </label><input type="email" name="txtEmailEmpresa" id="txtEmailEmpresa" placeholder="Correo del negocio" value=""required>
+			<label style="color:black;"> Correo electrónico: </label><input type="email" name="txtEmailEmpresa" id="txtEmailEmpresa" placeholder="Correo del negocio" 
+			value="<?= $emailEmpresa; ?>" required>
 			</div>
 			<div>
-			<label style="color:black;"> Dirección: </label><input type="text" name="txtDirEmpresa" id="txtDirEmpresa" placeholder="Dirección del negocio" value=""required>
+			<label style="color:black;"> Dirección: </label><input type="text" name="txtDirEmpresa" id="txtDirEmpresa" placeholder="Dirección del negocio" value="<?= $dirEmpresa; ?>" required>
 			</div>
 			<div>
 			<label style="color:black;"> IVA (%): </label><input type="text" name="txtIva" id="txtIva" placeholder="Impuesto al valor agregado
-			(IVA) " value=""required>
+			(IVA) " value="<?= $iva; ?>" required>
 			</div>
 			
 			<div class="alertFormEmpresa" style="display: none;"> </div>
@@ -178,8 +203,8 @@ if($result_das > 0) {
 				
 				</div>
 			</form>
-
 			</div>
+			<?php } ?>
 
 
 		</div>
