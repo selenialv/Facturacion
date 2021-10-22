@@ -8,6 +8,7 @@ if(empty($_SESSION['active']))
 
 <header>
 		<div class="header">
+			<a href="#" class="btnMenu"> <i class="fas fa-bars"> </i> </a>
 			
 			<h1>Sistema Facturación</h1>
 			<div class="optionsBar">

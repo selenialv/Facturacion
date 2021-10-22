@@ -57,6 +57,16 @@ header {
   position: fixed;
   width: 100%;
 }
+.btnMenu{
+  color: #fff;
+  font-size: 20px;
+  margin-right: 10px;
+  display: none;
+}
+.viewMenu{
+  left: 0;
+  transition: 0.5s all;
+}
 .header {
   color: #fff;
   background: #0a4661;
