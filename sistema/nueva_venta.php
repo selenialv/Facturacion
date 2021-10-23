@@ -20,7 +20,7 @@ include "../conexion.php";
 <div class="datos_cliente">
     <div class="action_cliente">
         <h4> Datos del cliente </h4>
-        <a href="#" class="btn_new btn_new_cliente"> <i class="fas fa-plus"> </i>
+        <a href="#" class="btn_new btn_new_cliente btnClienteVenta"> <i class="fas fa-plus"> </i>
         Nuevo cliente </a>
 </div>
 
@@ -67,6 +67,7 @@ include "../conexion.php";
 </div>
 </div>
 </div>
+<div class="containerTable">
 <table class="tbl_venta">
     <thead>
         <tr> 
@@ -105,6 +106,7 @@ include "../conexion.php";
     <!--Contenido AJAX-->
 </tfoot>
 </table>
+</div>
 
 </section>
 

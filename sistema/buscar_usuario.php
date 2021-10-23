@@ -35,6 +35,7 @@ include "../Conexion.php";  //llamado de conexion
         <input type="text" name ="busqueda" paceholder="buscar" value="<?php echo $busqueda; ?>">
         <input type="submit"value="Buscar" class="btn_search">
 </form>
+<div class="containerTable">
     
     <table>
         <tr>
@@ -124,6 +125,7 @@ $result = mysqli_num_rows($query);
 
 
 </table>
+</div>
 <div class="paginador">
     <ul>
         <?php if($pagina != 1)

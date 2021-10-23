@@ -36,11 +36,13 @@ include "../Conexion.php";  //llamado de conexion
         }
          ?>
 	<h1> <i class="fas fa-cube"></i> Lista de productos </h1>
-    <a href="registro_producto.php" class="btn_new"><i class="fas fa-plus"></i> Crear producto</a>
+    <a href="registro_producto.php" class="btn_new btnNewProducto"><i class="fas fa-plus"></i> Crear producto</a>
     <form action="buscar_productos.php" method="get" class="form_search"> 
         <input type="text" name ="busqueda" placeholder="buscar" value="<?php echo  $busqueda;?>">
         <button type="submit" class="btn_search"> <i class="fas fa-search"></i></button> 
 </form>
+
+<div class="containerTable">
     
     <table>
         <tr>
@@ -170,6 +172,7 @@ $result = mysqli_num_rows($query);
 ?>
 
 </table>
+</div>
 
 <?php 
 if($total_paginas != 0)

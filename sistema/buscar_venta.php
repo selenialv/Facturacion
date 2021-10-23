@@ -70,7 +70,7 @@
 <?php  include "includes/header.php"; ?>
 	<section id="container">
 	<h1><i class="far fa-file-alt"></i> Lista de ventas</h1>
-    <a href="nueva_venta.php" class="btn_new"><i class="fas fa-plus"></i> Nueva venta</a>
+    <a href="nueva_venta.php" class="btn_new btnNewVenta"><i class="fas fa-plus"></i> Nueva venta</a>
 
     <form action="buscar_venta.php" method="get" class="form_search"> 
         <input type="text" name ="busqueda" id="busqueda" placeholder="No. Factura" value="<?php echo $busqueda; ?>">
@@ -87,6 +87,8 @@
         <button type="submit" class="btn_view"><i class="fas fa-search"></i></button>
     </form>
 </div>
+
+    <div class="containerTable">
     
     <table>
         <tr>
@@ -186,6 +188,7 @@ $result = mysqli_num_rows($query);
 ?>
 
 </table>
+</div>
 <div class="paginador">
     <ul>
         <?php if($pagina != 1)

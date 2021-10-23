@@ -30,6 +30,7 @@ include "../Conexion.php";  //llamado de conexion
     
        
 </form>
+<div class="containerTable">
     
     <table>
         <tr>
@@ -95,7 +96,9 @@ $result = mysqli_num_rows($query);
 ?>
 
 
+
 </table>
+</div>
 <div class="paginador">
     <ul>
         <?php if($pagina != 1)

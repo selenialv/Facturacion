@@ -21,12 +21,12 @@ include "../Conexion.php";  //llamado de conexion
 <?php  include "includes/header.php"; ?>
 	<section id="container">
 	<h1> <i class="fas fa-cube"></i> Lista de productos </h1>
-    <a href="registro_producto.php" class="btn_new"><i class="fas fa-plus"></i> Crear producto</a>
+    <a href="registro_producto.php" class="btn_new btnNewProducto"><i class="fas fa-plus"></i> Crear producto</a>
     <form action="buscar_productos.php" method="get" class="form_search"> 
         <input type="text" name ="busqueda" paceholder="buscar">
         <button type="submit" class="btn_search"> <i class="fas fa-search"></i></button> 
 </form>
-    
+    <div class="containerTable">
     <table>
         <tr>
             <th>Código </th>
@@ -138,6 +138,7 @@ $result = mysqli_num_rows($query);
 ?>
 
 </table>
+</div>
 <div class="paginador">
     <ul>
         <?php if($pagina != 1)

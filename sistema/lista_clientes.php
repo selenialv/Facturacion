@@ -24,7 +24,8 @@ include "../Conexion.php";  //llamado de conexion
         <input type="text" name ="busqueda" paceholder="buscar">
         <button type="submit" class="btn_search"> <i class="fas fa-search"></i></button> 
 </form>
-    
+
+<div class="containerTable">
     <table>
         <tr>
             <th>ID</th>
@@ -95,6 +96,7 @@ else{
 ?>
 
 </table>
+</div>
 <div class="paginador">
     <ul>
         <?php if($pagina != 1)

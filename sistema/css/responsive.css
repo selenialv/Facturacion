@@ -40,3 +40,87 @@
     }
 }
     
+@media screen  and (max-width: 768px){
+    .dashboard{
+        flex-wrap: wrap;
+    }
+    .dashboard a{
+        width: 50%;
+        border-bottom: 1px solid #ccc;
+    }
+    .containerDataUser, .containerDataEmpresa{
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+    #container h1{
+        font-size: 15pt !important;
+    }
+    .logoUser, .logoEmpresa{
+        width: 150px;
+        height: 150px;
+    }
+    
+    /*lista de usuario */
+    .btn_new{
+        margin: 0;
+        margin-right: 10px;
+        padding: 5px 10px;
+        font-size: 6pt;
+    }
+    .form_search{
+        width: 100%;
+        margin-top: 10px;
+        border: 0;
+    }
+    .containerTable{
+        width: 100%;
+        border: 5px solid #ccc;
+        overflow: scroll;
+    }
+    table{
+        width: 850px;
+    }
+    table td, table th{
+        padding: 5px;
+        font-size: 10pt;
+    }
+    .form_register{
+        width: 100%;
+    }
+
+     form{
+         padding: 10px;
+     }
+    .btn_save{
+         width: 100%;
+         margin: 20px auto 15px auto;
+     }
+     .bodyModal{
+         padding: 10px;
+     }
+     .btn_new{
+         width: 124px;
+         font-size: 12pt;
+         border: 0;
+     }
+     .btnNewProducto, .btnNewVenta, .btnClienteVenta{
+         width: 140px;
+         font-size: 8pt;
+     }
+}
+
+@media screen  and (max-width: 460px){
+     .dashboard a{
+         padding: 5px 2px;
+     }
+     .dashboard p{
+         font-size: 8pt;
+     }
+     .dashboard span{
+         font-size: 10pt;
+     }
+     .divDataUser label{
+         width: 80px;
+     }
+}
