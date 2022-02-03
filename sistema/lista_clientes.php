@@ -41,7 +41,7 @@ $sql_registe= mysqli_query($conection,"SELECT COUNT(*) as total_registro FROM cl
 $result_register = mysqli_fetch_array($sql_registe);
 $total_registro = $result_register['total_registro'];
 
-$por_pagina = 5;
+$por_pagina = 10;
 if(empty($_GET['pagina'])){
     $pagina=1;
 }
